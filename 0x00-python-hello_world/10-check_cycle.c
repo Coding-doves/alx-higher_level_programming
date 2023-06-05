@@ -8,11 +8,13 @@
 
 int check_cycle(listint_t *list)
 {
-	listint *ptr = *list;
+	listint_t *ptr = list;
 
 	while(ptr->next != NULL)
 	{
 		ptr = ptr->next;
+		if(ptr->next == list)
+			return (0);
 	}
-	ptr->next = 
+	return (-1);
 }
