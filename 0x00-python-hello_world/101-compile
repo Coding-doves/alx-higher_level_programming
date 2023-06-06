@@ -11,5 +11,5 @@ if pat:
     py_compile.compile(pat, cfile=pat_comp, doraise=True)
     print(f"Compiling {pat} ...")
 else:
-    print("Not able to compile {pat}")
+    print(f"Not able to compile {pat}")
 sys.exit(1)
