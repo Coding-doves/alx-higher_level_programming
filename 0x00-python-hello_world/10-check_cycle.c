@@ -12,12 +12,11 @@ int check_cycle(listint_t *list)
 
 	ptr = ptr2 = list;
 
-	while(ptr != NULL && ptr2 != NULL && ptr2->next != NULL && ptr->next != NULL)
+	while(ptr != NULL && ptr->next != NULL)
 	{
-		ptr2 = ptr2->next;
-		ptr = ptr->next->next;
+		ptr = ptr->next;
 		
-		if(ptr2->next == ptr->next->next)
+		if(ptr->next == ptr2)
 			return (1);
 	}
 	return (0);
