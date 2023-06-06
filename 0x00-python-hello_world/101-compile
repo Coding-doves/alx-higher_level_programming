@@ -1,0 +1,15 @@
+#!/usr/bin/python3
+
+import py_compile
+import os
+import sys
+
+pat = os.environ.get('PYFILE')
+
+if pat:
+    pat_comp = pat + 'c'
+    py_compile.compile(pat, cfile=pat_comp, doraise=True)
+    print(f"Compiling {pat} ...")
+else:
+    print("Not able to compile {pat}")
+sys.exit(1)
