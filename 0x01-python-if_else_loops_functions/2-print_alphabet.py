@@ -1,4 +1,2 @@
-import string
-
-for alphabet in string.ascii_lowercase:
-    print(alphabet)
+for letter in range(97, 123):
+    print(chr(letter), end="")
