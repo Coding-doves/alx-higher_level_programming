@@ -3,7 +3,7 @@
 if __name__ == "__main__":
     import sys
 
-    ags = sys.argv[1:]
+    ags = sys.argv[1:] 
     num = len(ags)
 
     if len(ags) == 1:
