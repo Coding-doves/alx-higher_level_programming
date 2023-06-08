@@ -3,13 +3,14 @@
 if __name__ == "__main__":
     import sys
 
-    ags = sys.argv[1:]
-    num = len(ags)
+    num = len(sys.argv) - 1
 
-    if len(ags) == 1:
+    if num == 1:
         print("{} argument:".format(num))
+    elif num == 0:
+        print("{} arguments:".format(num))
     else:
         print("{} arguments:".format(num))
 
-    for i, a in enumerate(ags):
+    for i, a in enumerate(sys.argv[1:]):
         print("{}: {}".format(i + 1, a))
