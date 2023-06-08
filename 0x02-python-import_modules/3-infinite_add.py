@@ -4,10 +4,9 @@ if __name__ == "__main__":
 
     import sys
 
-    a = int(sys.argv[1:])
-    size = len(a)
+    index = len(sys.argv)
     plus = 0
 
-    for i, b in enumerate(a):
-        plus = plus + a
-        print("{}".format(plus))
+    for i in range(1, index):
+        plus = plus + int(sys.argv[i])
+    print("{}".format(plus))
