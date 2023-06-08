@@ -2,5 +2,5 @@
 
 for alpha in range(97, 123):
     if chr(alpha) == 'q' or chr(alpha) == 'e':
-                continue
+        continue
     print("{}".format(chr(alpha)), end='')
