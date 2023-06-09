@@ -1,0 +1,5 @@
+git add .
+git commit -m 'py Lists'
+git push
+clear
+ls
