@@ -28,7 +28,7 @@ int is_palindrome(listint_t **head)
 	/* compare reversed list with original list*/
 	while (ptr->next && ptr2->next)
 	{
-		if (ptr->next != ptr2->next)
+		if (ptr->n != ptr2->n)
 		{
 			return (0);
 			break;
