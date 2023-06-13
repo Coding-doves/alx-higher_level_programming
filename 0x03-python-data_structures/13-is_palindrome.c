@@ -114,15 +114,32 @@ int is_palindrome(listint_t **head)
 int is_palindrome(listint_t **head)
 {
 	listint_t *ptr;
-	int list[1024], i = 0, j, len;
+	int n = 1024, i = 0, j, len;
+	int *list = (int *)malloc(sizeof(int) * n);
 	
+	if (list == NULL)
+		return (0);
+
 	if (*head == NULL)
 		return (1);
 
 	ptr = *head;
 
-	while (ptr != NULL && i < 1024)
+	while (ptr != NULL)
 	{	
+		int *tmp;
+
+		if (i > 1023)
+		{
+			n *= 2;
+			tmp = (int *)realloc(list, n * sizeof(int));
+			if (tmp == NULL)
+			{
+				free(list);
+				return (0);
+			}
+			list = tmp;
+		}
 		list[i++] = ptr->n;
 		ptr = ptr->next;
 	}
@@ -131,8 +148,10 @@ int is_palindrome(listint_t **head)
 	for (j = 0; j <= len; j++)
 	{
 		if (list[j] != list[i - j - 1])
+			free(list);
 			return (0);
 	}
 
+	free(list);
 	return (1);
 }
