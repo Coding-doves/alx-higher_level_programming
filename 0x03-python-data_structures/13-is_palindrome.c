@@ -110,7 +110,7 @@ int is_palindrome(listint_t **head)
 */
 
 /* storing array before checking*/
-
+/* gave me more green checks, it means it more efficent and brief than the previous two*/
 int is_palindrome(listint_t **head)
 {
 	listint_t *ptr = *head;
