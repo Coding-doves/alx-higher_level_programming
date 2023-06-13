@@ -129,7 +129,7 @@ int is_palindrome(listint_t **head)
 	{	
 		int *tmp;
 
-		if (i > 1023)
+		if (i == n)
 		{
 			n *= 2;
 			tmp = (int *)realloc(list, n * sizeof(int));
