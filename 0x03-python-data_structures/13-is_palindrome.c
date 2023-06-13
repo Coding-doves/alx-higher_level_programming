@@ -8,7 +8,7 @@
 
 
 /* reversing the whole list before checking (big O(n))*/
-/*
+/*start=========================
 int is_palindrome(listint_t **head)
 {
 	listint_t *ptr, *ptr2;
@@ -49,13 +49,13 @@ int is_palindrome(listint_t **head)
 		ptr2 = ptr2->next;
 	}
 	return (1);
-}*/
+}ends==================*/
 
 
 
 
 /* checking palindrome from the middle*/
-/*
+/*starts================
 int is_palindrome(listint_t **head)
 {
 	listint_t *move1, *move2, *middle, *mid_nxt, *mid_prev, *ptr;
@@ -107,7 +107,7 @@ int is_palindrome(listint_t **head)
 	}
 	return (1);
 }
-*/
+end============*/
 
 /* storing array before checking*/
 /* gave me more green checks, it means it more efficent and brief than the previous two*/
