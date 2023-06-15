@@ -13,8 +13,6 @@ def roman_to_int(roman_string):
     add = 0
     length = len(roman_string)
 
-    if not rom_num or roman_string is None:
-        return 0
     for i in range(length):
         if i < l - 1 and rom_num[roman_string[i]]"/"
         < rom_num[roman_string[i + 1]]:
