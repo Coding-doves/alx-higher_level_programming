@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-
     rom_num = {
             'I': 1,
             'V': 5,
