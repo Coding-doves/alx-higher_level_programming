@@ -1,2 +1,1 @@
 pycodestyle "${*:1}"
-chmod +x *.py
