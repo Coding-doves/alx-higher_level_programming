@@ -4,9 +4,10 @@ def list_division(my_list_1, my_list_2, list_length):
     result = []
     res = 0
     try:
-        for i in range (list_length):
+        for i in range(list_length):
             try:
-                if isinstance(my_list_1[i], str) or isinstance(my_list_2[i], str):
+                if isinstance(my_list_1[i], str) or\
+                        isinstance(my_list_2[i], str):
                     res = 0
                     print("wrong type")
                 elif my_list_2[i] == 0:
@@ -20,7 +21,7 @@ def list_division(my_list_1, my_list_2, list_length):
                 print("out of range")
             except TypeError:
                 pass
-            except ZeroDivisionError: 
+            except ZeroDivisionError:
                 pass
             result.append(res)
     finally:
