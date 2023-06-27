@@ -1,4 +1,4 @@
 #!/usr/bin/python3
 class Square:
-    """creating a class object called square"""
+    """"Creating a square shape"""
     pass
