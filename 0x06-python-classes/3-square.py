@@ -20,11 +20,11 @@ class Square:
         elif size < 0:
             raise ValueError("size must be >= 0")
 
-        def area(self):
-            """this is a Class method
+    def area(self):
+        """this is a Class method
 
-            Returns:
-                the current square area
+        Returns:
+            the current square area
 
-            """
-            return self.__size ** 2
+        """
+        return self.__size ** 2
