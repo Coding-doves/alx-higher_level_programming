@@ -73,7 +73,7 @@ class Square:
     def my_print(self):
         """that prints in stdout the square with the character #
 
-        and prints first, the position - this represents the 
+        and prints first, the position - this represents the
         horizontal/row(position[0])/right and vertical/column(position[1])/down
         offset of the square's top-left corner. It determines where the square
         will be printed in relation to the left and top edges of the output.
