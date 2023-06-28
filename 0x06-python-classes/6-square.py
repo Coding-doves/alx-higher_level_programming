@@ -9,7 +9,7 @@ class Square:
         size (int): size of the square length
 
     """
-    def __init__(self, size=0):
+    def __init__(self, size=0, position=(0, 0)):
         """Initialize a Square instance.
 
          Args:
@@ -21,6 +21,7 @@ class Square:
 
          """
         self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -61,3 +62,9 @@ class Square:
                 print()
         elif self.size == 0:
             print()
+
+    def position(self):
+        """to retrieve position"""
+
+    def position(self, value):
+        """to set position"""
