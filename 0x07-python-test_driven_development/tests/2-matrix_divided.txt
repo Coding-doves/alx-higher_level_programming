@@ -1,0 +1,49 @@
+The `matrix_divided` module
+============================
+
+Using `matrix_divided`
+---------------------
+
+This is `matrix_divided` text file in reStructuredText format.
+First import `matrix_divided` from the `matrix_divided` module:
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Now use it:
+    >>> matrix = [
+            [3, 2, 7],
+            [4, 5.2, 9]
+    	]
+    >>> matrix_divided(matrix, 2)
+    [[1.5, 1.0, 3.5], [2.0, 2.6, 4.5]]
+    [[3, 2, 7], [4, 5.2, 9]]
+
+    >>> matrix = [
+            [3, 2, 'a'],
+            [4, 5.2, 9]
+        ]
+    >>> matrix_divided(matrix, 2)
+
+    >>> matrix = [
+            [3, 2, 7],
+            [4, 5.2]
+        ]
+    >>> matrix_divided(matrix, 4)
+
+    >>> matrix = [
+            [3, 2, 7],
+            [4, 5.2, 9]
+        ]
+    >>> matrix_divided(matrix, b)
+
+    >>> matrix = [
+            [3, 2, 7],
+            [4, 5.2, 9]
+        ]
+    >>> matrix_divided(matrix, 2.5)
+
+    >>> matrix = [
+            [3, 2, 7],
+            [4, 5.2, 9]
+        ]
+    >>> matrix_divided(matrix, 0)

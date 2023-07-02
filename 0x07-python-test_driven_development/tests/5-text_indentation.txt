@@ -1,0 +1,64 @@
+The `text_indentation` module
+============================
+
+Using `text_indentation`
+---------------------
+
+This is `text_indentation` text file in reStructuredText format.
+First import `5-text_indentation` from the `text_indentation` module:
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Now use it:
+
+    >>> text_indentation("""  Lorem ipsum dolor sit amet, 434 consectetur adipisc""")
+    Lorem ipsum dolor sit amet, 434 consectetur adipisc
+
+    >>> text_indentation("""Lorem ipsum dolor sit amet, 434 consectetur adipisc.     """)
+    Lorem ipsum dolor sit amet, 434 consectetur adipisc.
+    <BLANKLINE>
+
+    >>> text_indentation("""Lorem ipsum dolor sit amet, 434 consectetur adipisc""")
+    Lorem ipsum dolor sit amet, 434 consectetur adipisc
+
+    >>> text_indentation(412368000)
+    Traceback (most recent call last):
+      File "/home/ada/alx-higher_level_programming/0x07-python-test_driven_development/./5-main.py", line 4, in <module>
+        text_indentation(9876544332)
+      File "/home/ada/alx-higher_level_programming/0x07-python-test_driven_development/5-text_indentation.py", line 10, in text_indentation
+        raise TypeError("text must be a string")
+    TypeError: text must be a string
+
+    >>> text_indentation(""" """)
+
+    >>> text_indentation("""""")
+
+    >>> text_indentation("""                             """)
+
+    >>> text_indentation(4050.1104)
+    Traceback (most recent call last):
+      File "/home/ada/alx-higher_level_programming/0x07-python-test_driven_development/./5-main.py", line 4, in <module>
+        text_indentation(4050.1104)
+      File "/home/ada/alx-higher_level_programming/0x07-python-test_driven_development/5-text_indentation.py", line 10, in text_indentation
+        raise TypeError("text must be a string")
+    TypeError: text must be a string
+
+    >>> text_indentation(""".???:::..""")
+    .
+    <BLANKLINE> 
+    ?
+    <BLANKLINE> 
+    ?
+    <BLANKLINE> 
+    ?
+    <BLANKLINE> 
+    :
+    <BLANKLINE> 
+    :
+    <BLANKLINE> 
+    :
+    <BLANKLINE> 
+    .
+    <BLANKLINE> 
+    .
+    <BLANKLINE> 

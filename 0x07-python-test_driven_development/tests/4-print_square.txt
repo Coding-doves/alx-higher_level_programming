@@ -1,0 +1,34 @@
+The `print_square` module
+============================
+
+Using `print_square`
+---------------------
+
+This is `print_square` text file in reStructuredText format.
+First import `print_square` from the `print_square` module:
+
+    >>> print_square = __import__('4-print_square').print_square
+
+Now use it:
+    >>> print_square(3)
+    ###
+    ###
+    ###
+
+    >>> print_square(0)
+
+    >>> print_square(-5)
+    Traceback (most recent call last):
+      File "/home/ada/alx-higher_level_programming/0x07-python-test_driven_development/./4-main.py", line 6, in <module>
+        print_square(-5)
+      File "/home/ada/alx-higher_level_programming/0x07-python-test_driven_development/4-print_square.py", line 12, in print_square
+        raise ValueError("size must be >= 0")
+      ValueError: size must be >= 0
+
+    >>> print_square(5.4)
+    Traceback (most recent call last):
+      File "/home/ada/alx-higher_level_programming/0x07-python-test_driven_development/./4-main.py", line 8, in <module>
+        print_square(5.4)
+      File "/home/ada/alx-higher_level_programming/0x07-python-test_driven_development/4-print_square.py", line 10, in print_square
+        raise TypeError("size must be an integer")
+      TypeError: size must be an integer

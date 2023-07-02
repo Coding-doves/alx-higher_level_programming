@@ -1,0 +1,19 @@
+The `add_integer` module
+============================
+
+Using `add_integer`
+---------------------
+
+This is `add_integer` text file in reStructuredText format.
+First import `add_integer` from the `add_integer` module:
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Now use it:
+    >>> add_integer(6, 4)
+    >>> add_integer(6, 'a')
+    >>> add_integer(6.4, 4)
+    >>> add_integer(9, -2)
+    >>> add_integer(None)
+    >>> add_integer(10.3, -3)
+    >>> add_integer(-4)
