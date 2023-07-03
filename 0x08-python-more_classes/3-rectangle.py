@@ -55,7 +55,10 @@ class Rectangle:
 
     '''print area as #'''
     def pr_st(self):
-        return '\n'.join('#' * self.__width for i in range(self.__height))
+        if self.__width == 0 or self.__height:
+            return ' '
+        else:
+            return '\n'.join('#' * self.__width for i in range(self.__height))
 
     '''return area as #'''
     def __str__(self):
