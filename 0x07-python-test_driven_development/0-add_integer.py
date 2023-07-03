@@ -10,9 +10,11 @@ def add_integer(a, b=98):
     """Returns:
         int: result of a + b
     """
-    if not a or not b:
-        return
-    if not isinstance(a, int) and not isinstance(a, float):
+    if a == None or type(a) == str:
+        raise TypeError("a must be an integer")
+    if b == None or type(b) == str:
+        raise TypeError("b must be an integer")
+    elif not isinstance(a, int) and not isinstance(a, float):
         raise TypeError("a must be an integer")
     elif not isinstance(b, int) and not isinstance(b, float):
         raise TypeError("b must be an integer")
