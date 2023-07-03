@@ -17,13 +17,14 @@ def matrix_divided(matrix, div):
     for i in matrix:
         for j in i:
             if not isinstance(j, int) and not isinstance(j, float):
-                raise TypeError("matrix must be a matrix (list of lists) \
-                        of integers/floats")
+                raise TypeError("matrix must be a matrix (list of lists)"
+                        " of integers/floats")
             elif len(matrix[0]) < len(matrix[1]) or \
                     len(matrix[0]) > len(matrix[1]):
-                raise TypeError("Each row of the matrix must have the \
-                        same size")
-            elif not isinstance(div, int) and not isinstance(div, float):
+                raise TypeError("Each row of the matrix must have the"
+                        " same size")
+            elif not isinstance(div, int) and not isinstance(div, float)\
+                    and type(div) == str:
                 raise TypeError("div must be a number")
             elif div == 0:
                 raise ZeroDivisionError("division by zero")

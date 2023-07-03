@@ -13,29 +13,33 @@ Now use it:
     >>> add_integer(6, 4)
     10
 
-    >>> add_integer(6, 'a')
-    Traceback (most recent call last):
-      File "/home/ada/alx-higher_level_programming/0x07-python-test_driven_development/./0-main.py", line 8, in <module>
-        print(add_integer(6, 'a'))
-      File "/home/ada/alx-higher_level_programming/0x07-python-test_driven_development/0-add_integer.py", line 16, in add_integer
-        raise TypeError("b must be an integer")
-      TypeError: b must be an integer
-
     >>> add_integer(6.4, 4)
     10
 
     >>> add_integer(9, -2)
     7
 
-    >>> add_integer(None)
-    Traceback (most recent call last):
-      File "/home/ada/alx-higher_level_programming/0x07-python-test_driven_development/./0-main.py", line 8, in <module>
-        print(add_integer(None))
-      File "/home/ada/alx-higher_level_programming/0x07-python-test_driven_development/0-add_integer.py", line 14, in add_integer
-        raise TypeError("a must be an integer")
-      TypeError: a must be an integer
-
     >>> add_integer(10.3, -0.3)
     9
 
-    >>> add_integer(-4)
+    >>> add_integer(4)
+
+    >>> add_integer(6, 'a')
+    Traceback (most recent call last):
+      File "/usr/lib/python3.10/doctest.py", line 1350, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 0-add_integer.txt[6]>", line 1, in <module>
+        add_integer(6, 'a')
+      File "/home/ada/alx-higher_level_programming/0x07-python-test_driven_development/0-add_integer.py", line 16, in add_integer
+        raise TypeError("b must be an integer")
+    TypeError: b must be an integer
+
+    >>> add_integer(None)
+    Traceback (most recent call last):
+      File "/usr/lib/python3.8/doctest.py", line 1336, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 0-add_integer.txt[5]>", line 1, in <module>
+        add_integer(None)
+      File "/alx-higher_level_programming/0x07-python-test_driven_development/0-add_integer.py", line 14, in add_integer
+        raise TypeError("a must be an integer")
+    TypeError: a must be an integer

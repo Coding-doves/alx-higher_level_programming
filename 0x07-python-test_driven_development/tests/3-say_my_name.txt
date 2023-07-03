@@ -11,7 +11,24 @@ First import `say_my_name` from the `say_my_name` module:
 
 Now use it:
     >>> say_my_name("Ada", "Okonkwo")
-    AdaOkonkwo
+    My name is Ada Okonkwo
 
     >>> say_my_name(12, "White")
+    Traceback (most recent call last):
+      File "/usr/lib/python3.10/doctest.py", line 1350, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 3-say_my_name.txt[2]>", line 1, in <module>
+        say_my_name(12, "White")
+      File "/home/ada/alx-higher_level_programming/0x07-python-test_driven_development/3-say_my_name.py", line 15, in say_my_name
+        raise TypeError("first_name must be a string")
+    TypeError: first_name must be a string
+
     >>> say_my_name("White", 12.5)
+    Traceback (most recent call last):
+      File "/usr/lib/python3.10/doctest.py", line 1350, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 3-say_my_name.txt[3]>", line 1, in <module>
+        say_my_name("White", 12.5)
+      File "/home/ada/alx-higher_level_programming/0x07-python-test_driven_development/3-say_my_name.py", line 17, in say_my_name
+        raise TypeError("last_name must be a string")
+    TypeError: last_name must be a string
