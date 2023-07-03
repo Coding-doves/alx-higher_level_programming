@@ -11,9 +11,17 @@ First import `add_integer` from the `add_integer` module:
 
 Now use it:
     >>> add_integer(6, 4)
+    10
+
     >>> add_integer(6, 'a')
     >>> add_integer(6.4, 4)
+    10
+
     >>> add_integer(9, -2)
+    7
+
     >>> add_integer(None)
-    >>> add_integer(10.3, -3)
+    >>> add_integer(10.3, -0.3)
+    9
+
     >>> add_integer(-4)
