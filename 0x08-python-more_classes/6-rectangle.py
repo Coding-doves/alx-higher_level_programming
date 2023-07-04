@@ -3,7 +3,7 @@
 
 
 class Rectangle:
-
+    '''number of rectangle created'''
     number_of_instances = 0
 
     '''initializing a regtangle'''
@@ -21,7 +21,6 @@ class Rectangle:
     def width(self):
         return self.__width
 
-        Rectangle.number_of_instances += 1
     '''setting width'''
     @width.setter
     def width(self, value):
@@ -37,7 +36,6 @@ class Rectangle:
     def height(self):
         return self.__height
 
-        Rectangle.number_of_instances += 1
     '''setting height'''
     @height.setter
     def height(self, value):
