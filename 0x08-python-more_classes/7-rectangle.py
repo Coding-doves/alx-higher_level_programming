@@ -3,11 +3,16 @@
 
 
 class Rectangle:
+
+    number_of_instances = 0
+    print_symbol = '#'
+
     '''initializing a regtangle'''
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
 
+        Rectangle.number_of_instances += 1
     '''attribute:
         width(int): width of rectangle
         height(int): heightof rectangle
@@ -58,8 +63,17 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return  ' '
         else:
-            return '\n'.join(str('#') * self.__width for i in range(self.__height))
+            return '\n'.join(str(self.print_symbol) * self.__width for i in range(self.__height))
 
-    '''return area as #'''
+    '''return area as a str(#)'''
     def __str__(self):
         return f"{self.pr_st()}"
+
+    '''return area as string representation...to recreate a new instance'''
+    def __repr__(self):
+        return f"Rectangle{self.__width, self.__height}"
+
+    '''deleting a rectangle'''
+    def __del__(self):
+        Rectangle.number_of_instances -= 1
+        print("Bye rectangle...")

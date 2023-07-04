@@ -59,7 +59,11 @@ class Rectangle:
             return  ' '
         else:
             return '\n'.join(str('#') * self.__width for i in range(self.__height))
-
-    '''return area as #'''
+   
+    '''return area as a str(#)'''
     def __str__(self):
         return f"{self.pr_st()}"
+
+    '''return area as string representation...to recreate a new instance'''
+    def __repr__(self):
+        return f"Rectangle{self.__width, self.__height}"
