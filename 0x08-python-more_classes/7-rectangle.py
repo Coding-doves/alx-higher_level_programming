@@ -3,7 +3,7 @@
 
 
 class Rectangle:
-
+    '''number of rectangle created'''
     number_of_instances = 0
     print_symbol = '#'
 
