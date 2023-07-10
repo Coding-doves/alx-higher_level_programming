@@ -14,14 +14,15 @@ class BaseGeometry:
         elif value <= 0:
             raise ValueError('{} must be greater than 0'.format(name))
 
-''' creating  a class Rectangle that inherits from BaseGeometry'''
+
+''' creating a class Rectangle that inherits from BaseGeometry'''
 
 
 class Rectangle(BaseGeometry):
     '''initializing width and height'''
     def __init__(self, width, height):
         self.__width = width
-        self.__height  = height
+        self.__height = height
 
         if height < 0 and type(height) is not int:
             raise TypeError('{} must be an integer'.format(height))
