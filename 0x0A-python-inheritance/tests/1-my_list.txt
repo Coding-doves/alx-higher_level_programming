@@ -1,0 +1,42 @@
+The ``example`` module
+========================
+
+
+Using ``print_sorted``
+------------------------
+
+This is an example text file in reStructuredText format.
+First import ``print_sorted`` from the ``example`` module:
+
+
+    >>> MyList = __import__('1-my_list').MyList
+
+
+Now use it:
+
+
+    >>> my_list = MyList([6, 9, 2, 3, 6])
+    >>> my_list.print_sorted()
+    [2, 3, 6, 6, 9]
+
+
+    >>> print(my_list)
+    [6, 9, 2, 3, 6]
+
+
+    >>> my_list = MyList([-1, -4, 0, -3, 5])
+    >>> print(my_list)
+    [-1, -4, 0, -3, -5]
+
+
+    >>> my_list.print_sorted()
+    [-5, -4, -3, -1, 0]
+
+
+    >>> my_list = MyList([-1, 4, -2, 3, 0])
+    >>> print(my_list)
+    [-1, 4, -2, 3, 0]
+
+
+    >>> my_list.print_sorted()
+    [-2, -1, 0, 3, 4]
