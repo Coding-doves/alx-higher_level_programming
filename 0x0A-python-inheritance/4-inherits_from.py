@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''checking if the object is an instance of a class that inherited 
+'''checking if the object is an instance of a class that inherited
 (directly or indirectly) from the specified class '''
 
 
