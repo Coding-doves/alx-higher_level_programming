@@ -19,15 +19,13 @@ Now use it:
     >>> my_list.print_sorted()
     [2, 3, 6, 6, 9]
 
-
     >>> print(my_list)
     [6, 9, 2, 3, 6]
 
 
-    >>> my_list = MyList([-1, -4, 0, -3, 5])
+    >>> my_list = MyList([-1, -4, 0, -3, -5])
     >>> print(my_list)
     [-1, -4, 0, -3, -5]
-
 
     >>> my_list.print_sorted()
     [-5, -4, -3, -1, 0]
@@ -37,6 +35,10 @@ Now use it:
     >>> print(my_list)
     [-1, 4, -2, 3, 0]
 
-
     >>> my_list.print_sorted()
     [-2, -1, 0, 3, 4]
+
+    
+    >>> my_list = MyList([])
+    >>> print(my_list)
+    []
