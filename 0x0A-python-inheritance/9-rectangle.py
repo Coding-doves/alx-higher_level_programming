@@ -5,6 +5,7 @@
 class BaseGeometry:
     '''handle exception'''
     def area(self):
+        return self.height * self.width
         raise Exception('area() is not implemented')
 
     '''that validates value'''
@@ -27,3 +28,10 @@ class Rectangle(BaseGeometry):
             raise TypeError('{} must be an integer'.format(height))
         if width < 0 and type(width) is not int:
             raise TypeError('{} must be an integer'.format(width))
+
+    def prinT(self):
+        print('\n'.join(self.height * self.width))
+
+    def __str__(self):
+        return f'[Rectangle] {self.__width}/{self.__height}'
+
