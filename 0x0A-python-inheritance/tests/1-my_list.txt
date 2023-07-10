@@ -31,6 +31,13 @@ Now use it:
     [-6, -5, -4, -3, -1]
 
 
+    >>> my_list = MyList("Ada")
+    >>> print(my_list)
+    ['A', 'd', 'a']
+
+    >>> my_list.print_sorted()
+    ['A', 'a', 'd']
+
     >>> my_list = MyList([-1, 4, -2, 3, 0])
     >>> print(my_list)
     [-1, 4, -2, 3, 0]
