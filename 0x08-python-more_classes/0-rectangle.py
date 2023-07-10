@@ -3,4 +3,5 @@
 
 
 class Rectangle:
+    '''rectangle noy yet efine so pass'''
     pass
