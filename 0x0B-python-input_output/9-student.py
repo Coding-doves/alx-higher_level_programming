@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 '''data of student'''
 
-import json
-
 
 class Student:
     '''initializing needed data'''
