@@ -46,6 +46,6 @@ Now use it:
     [-2, -1, 0, 3, 4]
 
     
-    >>> my_list = MyList([])
+    >>> my_list = MyList()
     >>> print(my_list)
     []
