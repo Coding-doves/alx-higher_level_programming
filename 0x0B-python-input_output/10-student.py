@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 import json
-
-
 '''data of student'''
+
+
 class Student:
     '''initializing needed data'''
     def __init__(self, first_name, last_name, age):
