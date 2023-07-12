@@ -2,6 +2,8 @@
 '''data of student'''
 
 import json
+
+
 class Student:
     '''initializing needed data'''
     def __init__(self, first_name, last_name, age):
