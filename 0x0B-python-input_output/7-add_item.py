@@ -13,6 +13,6 @@ file = "add_item.json"
 with open(file, 'a+', encoding="utf-8") as f:
     '''using json.load'''
     list_store = []
-    list_store.append(args[1:])
+    list_store.extend(args[1:])
     save_to_json_file(list_store, file)
     load_from_json_file(file)
