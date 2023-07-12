@@ -1,9 +1,5 @@
-#!/usr/bin/python3
-'''import module'''
-
-
-import json
-'''JSON serialization of an object'''
+#!usr/bin/python3
+'''JSON serialization'''
 
 
 def class_to_json(obj):
