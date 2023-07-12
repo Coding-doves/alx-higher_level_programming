@@ -13,7 +13,7 @@ file = "add_item.json"
 '''using json.load'''
 if (file):
     list_store = load_from_json_file(file)
-
-list_store = []
+else:
+    list_store = []
 list_store.extend(args[1:])
 save_to_json_file(list_store, file)
