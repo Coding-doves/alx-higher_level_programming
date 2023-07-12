@@ -25,7 +25,6 @@ Now use it:
         raise TypeError('{} must be an integer'.format(name))
     TypeError: _int must be an integer
     
-    >>> bg.integer_validator("Ada", 89) 
 
     >>> bg.integer_validator("dad", 0)
     Traceback (most recent call last):
@@ -37,6 +36,7 @@ Now use it:
         raise ValueError('{} must be greater than 0'.format(name))
     ValueError: dad must be greater than 0
 
+
     >>> bg.integer_validator("chi", "")
     Traceback (most recent call last):
       File "/usr/lib/python3.10/doctest.py", line 1350, in __run
@@ -47,6 +47,7 @@ Now use it:
         raise TypeError('{} must be an integer'.format(name))
     TypeError: chi must be an integer
 
+
     >>> bg.integer_validator("num", -3)
     Traceback (most recent call last):
       File "/usr/lib/python3.10/doctest.py", line 1350, in __run
@@ -56,3 +57,95 @@ Now use it:
       File "/home/ada/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 15, in integer_validator
         raise ValueError('{} must be greater than 0'.format(name))
     ValueError: num must be greater than 0
+
+
+    >>> bg.integer_validator("num")
+    Traceback (most recent call last):
+      File "/usr/lib/python3.10/doctest.py", line 1350, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 7-base_geometry.txt[7]>", line 1, in <module>
+        bg.integer_validator("num")
+    TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+      File "/usr/lib/python3.10/doctest.py", line 1350, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 7-base_geometry.txt[9]>", line 1, in <module>
+        bg.integer_validator()
+    TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+
+    >>> bg.integer_validator("num", (-3))
+    Traceback (most recent call last):
+      File "/usr/lib/python3.10/doctest.py", line 1350, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 7-base_geometry.txt[9]>", line 1, in <module>
+        bg.integer_validator("num", (-3))
+      File "/home/ada/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 15, in integer_validator
+        raise ValueError('{} must be greater than 0'.format(name))
+    ValueError: num must be greater than 0
+
+
+    >>> bg.integer_validator("num", [3])
+    Traceback (most recent call last):
+      File "/usr/lib/python3.10/doctest.py", line 1350, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 7-base_geometry.txt[11]>", line 1, in <module>
+        bg.integer_validator("num", [3])
+      File "/home/ada/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 13, in integer_validator
+        raise TypeError('{} must be an integer'.format(name))
+    TypeError: num must be an integer
+
+
+    >>> bg.integer_validator("num", None)
+    Traceback (most recent call last):
+      File "/usr/lib/python3.10/doctest.py", line 1350, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 7-base_geometry.txt[13]>", line 1, in <module>
+        bg.integer_validator("num", None)
+      File "/home/ada/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 13, in integer_validator
+        raise TypeError('{} must be an integer'.format(name))
+    TypeError: num must be an integer
+
+
+    >>> bg.integer_validator("num", (3,))
+    Traceback (most recent call last):
+      File "/usr/lib/python3.10/doctest.py", line 1350, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 7-base_geometry.txt[14]>", line 1, in <module>
+        bg.integer_validator("num", (3,))
+      File "/home/ada/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 13, in integer_validator
+        raise TypeError('{} must be an integer'.format(name))
+    TypeError: num must be an integer
+
+
+    >>> bg.integer_validator("num", (3, 1))
+    Traceback (most recent call last):
+      File "/usr/lib/python3.10/doctest.py", line 1350, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 7-base_geometry.txt[15]>", line 1, in <module>
+        bg.integer_validator("num", (3, 1))
+      File "/home/ada/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 13, in integer_validator
+        raise TypeError('{} must be an integer'.format(name))
+    TypeError: num must be an integer
+
+
+    >>> bg.integer_validator("num", {3, 1})
+    Traceback (most recent call last):
+      File "/usr/lib/python3.10/doctest.py", line 1350, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 7-base_geometry.txt[16]>", line 1, in <module>
+        bg.integer_validator("num", {3, 1})
+      File "/home/ada/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 13, in integer_validator
+        raise TypeError('{} must be an integer'.format(name))
+    TypeError: num must be an integer
+
+
+    >>> bg.integer_validator("num", (3))
+
+    >>> bg.integer_validator("num", True)
+    
+    >>> bg.integer_validator("Ada", 89) 
+
