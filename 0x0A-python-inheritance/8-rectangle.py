@@ -25,7 +25,7 @@ class Rectangle(BaseGeometry):
         self.__height = height
 
         if height <= 0 and type(height) != int and\
-                isinstance(height, (str, float)):
+                type(height) == str and type(height) == float:
             raise TypeError('{} must be an integer'.format(height))
         if width <= 0 and type(width) is not int:
             raise TypeError('{} must be an integer'.format(width))
