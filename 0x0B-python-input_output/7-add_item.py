@@ -14,6 +14,6 @@ list_store = []
 '''using json.load'''
 if exists(file):
     list_store = load_from_json_file(file)
-    
+
 list_store.extend(args[1:])
 save_to_json_file(list_store, file)
