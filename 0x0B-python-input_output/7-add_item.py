@@ -13,7 +13,7 @@ list_store = []
 
 '''using json.load'''
 if (file):
-    list_store_2 = load_from_json_file(file)
+    list_store = load_from_json_file(file)
 
 list_store.extend(args[1:])
 save_to_json_file(list_store, file)
