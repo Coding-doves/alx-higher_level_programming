@@ -1,4 +1,4 @@
-#!/uer/bin/python3
+#!/usr/bin/python3
 '''data of student'''
 
 import json
