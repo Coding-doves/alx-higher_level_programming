@@ -11,7 +11,7 @@ args = sys.argv
 file = "add_item.json"
 
 '''using json.load'''
-if (file):
+if file:
     list_store = load_from_json_file(file)
 else:
     list_store = []
