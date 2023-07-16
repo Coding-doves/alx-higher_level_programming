@@ -82,29 +82,26 @@ class Rectangle(Base):
     '''display "#" of rectangle'''
     def display(self):
         if self.__width == 0:
-            return ''
+            print()
         else:
             for i in range(self.__y):
-                if i > 0:
+                if i >= 0:
                     print()
 
-            return '\n'.join(str(" ") * self__x + str('#') * self.__width for i in range(height))
+            print('\n'.join(str(" ") * self.__x + str('#') * self.__width for i in range(self.__height)))
 
     '''magic method'''
     def __str__(self):
-        return "f{'[Rectangle]' (self.id()) self.x()/self.y() - self.width()/height()}"
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height)
 
-    '''update class'''
+    '''update class Rectangle public __init__ attribute'''
     def update(self, *args, **kwargs):
-        num_args = len(args)
+        if args:
+            num_args = ['id', 'width', 'height', 'x', 'y']
 
-        if num_args >= 1:
-            self.id = args[0]
-        elif num_args >= 2:
-            self.__width = args[2]
-        elif num_args >= 3:
-            self.__height = args[3]
-        elif num_args >= 4:
-            self.__x = args[4]
-        elif num_args >= 5:
-            self.__y = args[5]
+            for i, s in enumerate(args):
+                if i < len(num_args):
+                    setattr(self, num_args[i], s)
+        elif kwargs:
+            for key, val in kwargs.items():
+                setattr(self, key, val)
