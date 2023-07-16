@@ -6,6 +6,6 @@ import json
 
 
 def save_to_json_file(my_obj, filename):
-    '''using json.load'''
+    '''using json.dumps'''
     with open(filename, 'w') as f:
         return json.dump(my_obj, f)
