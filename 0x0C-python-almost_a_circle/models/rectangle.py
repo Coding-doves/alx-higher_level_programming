@@ -5,7 +5,7 @@
 from models.base import Base
 
 class Rectangle(Base):
-    '''nitializing rectangle'''
+    '''initializing rectangle'''
     def __init__(self, width=0, height=0, x=0,  y=0, id=None):
         '''super module use in call the base class once'''
         super().__init__(id)
@@ -105,3 +105,13 @@ class Rectangle(Base):
         elif kwargs:
             for key, val in kwargs.items():
                 setattr(self, key, val)
+
+    '''==================dictionary representation==========='''
+    def to_dictionary(self):
+        keys = ['id', 'width', 'height', 'x', 'y']
+        dic = {}
+
+        for i in keys:
+            dic[i] = getattr(self, i)
+            
+        return dic
