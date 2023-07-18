@@ -25,13 +25,13 @@ class TestJson(unittest.TestCase):
         r_s = Rectangle(14, 9, 2, 3)
         dic = r_s.to_dictionary()
         json_dic1 = Base.to_json_string([dic])
-        out = '[{"id": 1, "width": 14, "height": 9, "x": 2, "y": 3}]'
+        out = f'[{{"id": {r_s.id}, "width": 14, "height": 9, "x": 2, "y": 3}}]'
         self.assertEqual(json_dic1, out)
 
-        r_s = Rectangle((14), 9, 2, 3)
-        dic = r_s.to_dictionary()
+        r_ss = Rectangle((14), 9, 2, 3)
+        dic = r_ss.to_dictionary()
         json_dic1 = Base.to_json_string([dic])
-        out = '[{"id": 2, "width": 14, "height": 9, "x": 2, "y": 3}]'
+        out = f'[{{"id": {r_ss.id}, "width": 14, "height": 9, "x": 2, "y": 3}}]'
         self.assertEqual(json_dic1, out)
 
         with self.assertRaises(ValueError):
@@ -50,20 +50,19 @@ class TestJson(unittest.TestCase):
         with self.assertRaises(TypeError):
             r_s4 = Rectangle(10, [3])
             r_s4.to_dictionary()
-
             r_s5 = Rectangle(6, (3, 2))
             r_s5.to_dictionary()
 
         squ = Square(9, 2, 3, 7)
         sq_d = squ.to_dictionary()
         json_dic_sq = Base.to_json_string([sq_d])
-        out = '[{"id": 7, "size": 9, "x": 2, "y": 3}]'
+        out = f'[{{"id": {squ.id}, "size": 9, "x": 2, "y": 3}}]'
         self.assertEqual(json_dic_sq, out)
 
         squ0 = Square(9, (2), 3, 8)
         sq_d1 = squ0.to_dictionary()
         json_dic_sq2 = Base.to_json_string([sq_d1])
-        out = '[{"id": 8, "size": 9, "x": 2, "y": 3}]'
+        out = f'[{{"id": {squ0.id}, "size": 9, "x": 2, "y": 3}}]'
         self.assertEqual(json_dic_sq2, out)
 
         with self.assertRaises(ValueError):

@@ -14,11 +14,12 @@ class TestBase(unittest.TestCase):
         bas1 = Base()
         self.assertEqual(bas1.id, 1)
 
+        bas2 = Base()
+        self.assertEqual(bas2.id, 2)
+
         bas3 = Base(5)
         self.assertEqual(bas3.id, 5)
 
-        bas2 = Base()
-        self.assertEqual(bas2.id, 2)
 
         if __name__ == '__main__':
             unittest.main()

@@ -19,9 +19,8 @@ class TestJson1(unittest.TestCase):
         Rectangle.save_to_file([rec, rec1])
         with open("Rectangle.json", "r", encoding='utf=8') as fil:
             d_fy = fil.read()
-            output = '[{"id": 1, "width": 6, "height": 3, "x": 0, "y": 0},' \
-                    ' ' \
-                    '{"id": 2, "width": 1, "height": 4, "x": 0, "y": 0}]'
+            output = (f'[{{"id": {rec.id}, "width": 6, "height": 3, "x": 0, "y": 0}}, '
+                  f'{{"id": {rec1.id}, "width": 1, "height": 4, "x": 0, "y": 0}}]')
             self.assertEqual(d_fy, output)
 
         s_rc = Rectangle(6, (3))
@@ -29,9 +28,8 @@ class TestJson1(unittest.TestCase):
         Rectangle.save_to_file([s_rc, rc1])
         with open("Rectangle.json", "r", encoding='utf=8') as fil:
             d_fy = fil.read()
-            output = '[{"id": 3, "width": 6, "height": 3, "x": 0, "y": 0},' \
-                     ' ' \
-                     '{"id": 4, "width": 1, "height": 4, "x": 0, "y": 0}]'
+            output = (f'[{{"id": {s_rc.id}, "width": 6, "height": 3, "x": 0, "y": 0}}, '
+                     f'{{"id": {rc1.id}, "width": 1, "height": 4, "x": 0, "y": 0}}]')
             self.assertEqual(d_fy, output)
 
         Rectangle.save_to_file(None)
@@ -77,7 +75,8 @@ class TestJson1(unittest.TestCase):
         Square.save_to_file([squ, squ1])
         with open("Square.json", "r", encoding='utf=8') as fil:
             d_fy = fil.read()
-            output = '[{"id": 7, "size": 4, "x": 0, "y": 0}, {"id": 8, "size": 8, "x": 0, "y": 0}]'
+            output = (f'[{{"id": {squ.id}, "size": 4, "x": 0, "y": 0}}, '
+                      f'{{"id": {squ1.id}, "size": 8, "x": 0, "y": 0}}]')
             self.assertEqual(d_fy, output)
 
         squ0 = Square(7)
@@ -85,7 +84,8 @@ class TestJson1(unittest.TestCase):
         Square.save_to_file([squ0, squ2])
         with open("Square.json", "r", encoding='utf=8') as fil:
             d_fy = fil.read()
-            output = '[{"id": 9, "size": 7, "x": 0, "y": 0}, {"id": 10, "size": 4, "x": 0, "y": 0}]'
+            output = (f'[{{"id": {squ0.id}, "size": 7, "x": 0, "y": 0}}, '
+                      f'{{"id": {squ2.id}, "size": 4, "x": 0, "y": 0}}]')
             self.assertEqual(d_fy, output)
 
         Square.save_to_file(None)
