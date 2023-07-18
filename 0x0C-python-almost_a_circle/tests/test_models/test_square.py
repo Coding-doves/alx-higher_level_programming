@@ -250,6 +250,41 @@ class TestSquare(unittest.TestCase):
             up_k.update(id=100, size=(5, 6))
             up_k.update(id=100, size=[5, 0], x= 0)
 
+    def test_create_square(self):
+        '''testing create'''
+        creat_s = {'size': 10, 'x': 1, 'y': 2, 'id': 43}
+        ct_s = Square.create(**creat_s)
+
+        self.assertEqual(ct_s.size, 10)
+        self.assertEqual(ct_s.x, 1)
+        self.assertEqual(ct_s.y, 2)
+        self.assertEqual(ct_s.id, 43)
+
+        creat_s2 = {'size': (10), 'x': 1, 'y': 2, 'id': 43}
+        ct_s2 = Square.create(**creat_s2)
+
+        self.assertEqual(ct_s2.size, 10)
+        self.assertEqual(ct_s2.x, 1)
+        self.assertEqual(ct_s2.y, 2)
+        self.assertEqual(ct_s2.id, 43)
+
+        with self.assertRaises(TypeError):
+            ct_s0 = {'id': 100, 'width': [5], 'height': 6}
+            Square.create(**ct_s0)
+        with self.assertRaises(TypeError):
+            ct_s1 = {'id': 100, 'width': '5', 'height': 6}
+            Square.create(**ct_s1)
+        with self.assertRaises(TypeError):
+            ct_s2 = {'id': 100, 'width': (5, 6), 'height': 6}
+            Square.create(**ct_s2)
+        with self.assertRaises(TypeError):
+            ct_s3 = {'id': 100, 'width': [5, 0], 'height': 6, 'x': 0}
+            Square.create(**ct_s3)
+
+        with self.assertRaises(ValueError):
+            ct_s = {'id': 100, 'width': 5, 'height': -6}
+            Square.create(**ct_s)
+
 
 if __name__ == '__main__':
     unittest.main()
