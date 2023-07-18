@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-import json
 '''base class for this project'''
+import json
 
 
 class Base:
     '''private class attribute'''
     __nb_objects = 0
 
-    '''initializing base'''
     def __init__(self, id=None):
+        '''initializing base'''
         if id is None:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
