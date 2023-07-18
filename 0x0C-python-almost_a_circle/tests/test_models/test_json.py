@@ -1,16 +1,16 @@
+#!/usr/bin/python3
+'''testcase for JSON
+
+'''
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
-'''testcase for JSON
-
-'''
-
 
 class TestJson(unittest.TestCase):
-    '''testing Json'''
     def test_To(self):
+        '''testing Json'''
         rec = Base.to_json_string([])
         self.assertEqual(rec, '[]')
 
@@ -88,3 +88,7 @@ class TestJson(unittest.TestCase):
         with self.assertRaises(ValueError):
             s6 = Square(0, 0)
             c6 = s6.to_dictionary()
+
+
+        if __name__ == '__main__':
+            unitest.main()

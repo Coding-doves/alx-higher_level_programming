@@ -1,16 +1,16 @@
+#!/usr/bin/python3
+'''testcase for JSON
+
+'''
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
-'''testcase for JSON
-
-'''
-
 
 class TestJson1(unittest.TestCase):
-    '''testing Json'''
     def test_Save(self):
+        '''testing Json'''
         '''save to file'''
         rec = Rectangle(6, 3)
         rec1 = Rectangle(1, 4)
@@ -72,3 +72,7 @@ class TestJson1(unittest.TestCase):
         sq = Square(4)
         sq = Square(8)
         sq = Square(7)
+
+
+        if __name__ == '__main__':
+            unitest.main()

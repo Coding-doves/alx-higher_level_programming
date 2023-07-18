@@ -1,17 +1,24 @@
+#!/usr/bin/python3
+'''testcase for base class'''
+
 import unittest
 from models.base import Base
 
-'''testcase for base class'''
-
 
 class TestBase(unittest.TestCase):
-    '''testing base'''
-    def test_Base(self):
-        b1 = Base()
-        self.assertEqual(b1.id, 1)
+    '''
+    Test cases for the Base class.
+    '''
+    def test_base(self):
+        '''testing base'''
+        bas1 = Base()
+        self.assertEqual(bas1.id, 1)
 
-        b3 = Base(5)
-        self.assertEqual(b3.id, 5)
+        bas3 = Base(5)
+        self.assertEqual(bas3.id, 5)
 
-        b2 = Base()
-        self.assertEqual(b2.id, 2)
+        bas2 = Base()
+        self.assertEqual(bas2.id, 2)
+
+        if __name__ == '__main__':
+            unittest.main()

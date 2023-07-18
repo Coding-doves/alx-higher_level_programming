@@ -1,5 +1,4 @@
-import unittest
-from models.square import Square
+#!/usr/bin/python3
 
 '''testcase for square class
     1. initialization test  -> 18
@@ -11,6 +10,8 @@ from models.square import Square
     7. update test          -> 245
 
 '''
+import unittest
+from models.square import Square
 
 
 class TestSquare(unittest.TestCase):
