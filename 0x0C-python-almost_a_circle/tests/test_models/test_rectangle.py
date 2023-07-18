@@ -274,19 +274,97 @@ class TestRectangle(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             up_u.update(100, [5], 6, 0)
+        with self.assertRaises(TypeError):
             up_u.update(100, 5, '6', 0)
+        with self.assertRaises(TypeError):
             up_u.update(100, (5, 6))
+        with self.assertRaises(TypeError):
             up_u.update(100, [5, 0], 6, 0)
+        with self.assertRaises(TypeError):
             up_k.update(id=100, width=[5], height=6)
+        with self.assertRaises(TypeError):
             up_k.update(id=100, width='5', height=6)
+        with self.assertRaises(TypeError):
             up_k.update(id=100, width=(5, 6), height=6)
+        with self.assertRaises(TypeError):
             up_k.update(id=100, width=[5, 0], height=6, x= 0)
 
         with self.assertRaises(ValueError):
             up_k.update(id=100, width=5, height=-6)
+        with self.assertRaises(ValueError):
             up_u.update(100, -5, 6, 0)
 
+    def test_create(self):
+        '''testing create'''
+        creat_r = {'width': 10, 'height': 30, 'x': 1, 'y': 2, 'id': 43}
+        ct_r = Rectangle.create(**creat_r)
 
+        self.assertEqual(ct_r.width, 10)
+        self.assertEqual(ct_r.x, 1)
+        self.assertEqual(ct_r.y, 2)
+        self.assertEqual(ct_r.height, 30)
+        self.assertEqual(ct_r.id, 43)
+
+        creat_r2 = {'width': (10), 'height': 30, 'x': 1, 'y': 2, 'id': 43}
+        ct_r2 = Rectangle.create(**creat_r2)
+
+        self.assertEqual(ct_r2.width, 10)
+        self.assertEqual(ct_r2.x, 1)
+        self.assertEqual(ct_r2.y, 2)
+        self.assertEqual(ct_r2.height, 30)
+        self.assertEqual(ct_r2.id, 43)
+
+        with self.assertRaises(TypeError):
+            ct_r0 = {'id': 100, 'width': [5], 'height': 6}
+            Rectangle.create(**ct_r0)
+        with self.assertRaises(TypeError):
+            ct_r1 = {'id': 100, 'width': '5', 'height': 6}
+            Rectangle.create(**ct_r1)
+        with self.assertRaises(TypeError):
+            ct_r2 = {'id': 100, 'width': (5, 6), 'height': 6}
+            Rectangle.create(**ct_r2)
+        with self.assertRaises(TypeError):
+            ct_r3 = {'id': 100, 'width': [5, 0], 'height': 6, 'x': 0}
+            Rectangle.create(**ct_r3)
+
+        with self.assertRaises(ValueError):
+            ct_r = {'id': 100, 'width': 5, 'height': -6}
+            Rectangle.create(**ct_r)
+
+    def test_create_square(self):
+        '''testing create'''
+        creat_s = {'size': 10, 'x': 1, 'y': 2, 'id': 43}
+        ct_s = Rectangle.create(**creat_s)
+
+        self.assertEqual(ct_s.size, 10)
+        self.assertEqual(ct_s.x, 1)
+        self.assertEqual(ct_s.y, 2)
+        self.assertEqual(ct_s.id, 43)
+
+        creat_s2 = {'size': (10), 'x': 1, 'y': 2, 'id': 43}
+        ct_s2 = Rectangle.create(**creat_s2)
+
+        self.assertEqual(ct_s2.size, 10)
+        self.assertEqual(ct_s2.x, 1)
+        self.assertEqual(ct_s2.y, 2)
+        self.assertEqual(ct_s2.id, 43)
+
+        with self.assertRaises(TypeError):
+            ct_s0 = {'id': 100, 'width': [5], 'height': 6}
+            Rectangle.create(**ct_s0)
+        with self.assertRaises(TypeError):
+            ct_s1 = {'id': 100, 'width': '5', 'height': 6}
+            Rectangle.create(**ct_s1)
+        with self.assertRaises(TypeError):
+            ct_s2 = {'id': 100, 'width': (5, 6), 'height': 6}
+            Rectangle.create(**ct_s2)
+        with self.assertRaises(TypeError):
+            ct_s3 = {'id': 100, 'width': [5, 0], 'height': 6, 'x': 0}
+            Rectangle.create(**ct_s3)
+
+        with self.assertRaises(ValueError):
+            ct_s = {'id': 100, 'width': 5, 'height': -6}
+            Rectangle.create(**ct_s)
 
 if __name__ == '__main__':
     unittest.main()
