@@ -42,28 +42,28 @@ class TestJson1(unittest.TestCase):
             rec2 = Rectangle(0, 3)
             rec3 = Rectangle(1, 4)
             Rectangle.save_to_file([rec2, rec3])
-
+        with self.assertRaises(ValueError):
             rc8 = Rectangle(0, 0)
             rc9 = Rectangle(0, 0)
             Rectangle.save_to_file([rc8, rc9])
-
+        with self.assertRaises(ValueError):
             rec4 = Rectangle(6, 3)
             rec5 = Rectangle(1, -4)
             Rectangle.save_to_file([rec4, rec5])
-
+        with self.assertRaises(ValueError):
             rec6 = Rectangle()
             rec7 = Rectangle()
+            Rectangle.save_to_file([rec6, rec7])
+        with self.assertRaises(TypeError):
+            rec6 = Rectangle([])
+            rec7 = Rectangle([])
             Rectangle.save_to_file([rec6, rec7])
 
         with self.assertRaises(TypeError):
             rc2 = Rectangle((0, 3), 2)
             rc3 = Rectangle(1, 4)
             Rectangle.save_to_file([rc2, rc3])
-
-            rc4 = Rectangle(4, [3])
-            rc5 = Rectangle(1, 4)
-            Rectangle.save_to_file([rc4, rc5])
-
+        with self.assertRaises(TypeError):
             rc6 = Rectangle(4, [3, 3])
             rc7 = Rectangle(1, 4)
             Rectangle.save_to_file([rc6, rc7])
@@ -110,9 +110,14 @@ class TestJson1(unittest.TestCase):
             Square.save_to_file([squr4, squr5])
 
         with self.assertRaises(TypeError):
-            squr6 = Square()
-            squr7 = Square()
-            Square.save_to_file([squr6, squr7])
+            squr4 = Square()
+            squr5 = Square()
+            Square.save_to_file([squr4, squr5])
+
+        with self.assertRaises(TypeError):
+            squr4 = Square([])
+            squr5 = Square([])
+            Square.save_to_file([squr4, squr5])
 
         with self.assertRaises(TypeError):
             squr2 = Square((0, 3))
