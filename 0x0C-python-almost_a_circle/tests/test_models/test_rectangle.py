@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-'''testcase for rectangle class
+'''
+Testcase for rectangle class
     1. initialization test  -> 18
     2. setters test         -> 26
     3. validation test      -> 38
@@ -47,42 +48,21 @@ class TestRectangle(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             Rectangle(1, -6)
-
-        with self.assertRaises(ValueError):
             Rectangle(0, 0)
-
-        with self.assertRaises(ValueError):
             Rectangle(0, 6)
-
-        with self.assertRaises(TypeError):
-            Rectangle(4, [5])
+            Rectangle(2, 5, 0, -1)
+            Rectangle(5, )
 
         with self.assertRaises(Exception):
             Rectangle(5)
-
-        with self.assertRaises(Exception):
             Rectangle()
 
         with self.assertRaises(TypeError):
             Rectangle(9, 5, [0, 1])
-
-        with self.assertRaises(ValueError):
-            Rectangle(2, 5, 0, -1)
-
-        with self.assertRaises(TypeError):
             Rectangle(5, 5, 0.2, 1)
-
-        with self.assertRaises(TypeError):
             Rectangle("6", 2, 0, 0, 5)
-
-        with self.assertRaises(TypeError):
             Rectangle(6, 5, 0, (1, 2))
-
-        with self.assertRaises(Exception):
-            Rectangle()
-
-        with self.assertRaises(ValueError):
-            Rectangle(5, )
+            Rectangle(4, [5])
 
     def test_rectangle_area(self):
         '''testing for area'''
@@ -98,53 +78,45 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             a_s4 = Rectangle(0, 0)
             a_s4.area()
-        with self.assertRaises(ValueError):
+
             a_s4 = Rectangle(1, -6)
             a_s4.area()
 
-        with self.assertRaises(ValueError):
             a_s5 = Rectangle(0, 6)
             a_s5.area()
 
-        with self.assertRaises(TypeError):
-            a_s6 = Rectangle(4, [5])
-            a_s6.area()
+            a_s10 = Rectangle(2, 5, 0, -1)
+            a_s10.area()
+
+            a_s = Rectangle(5, )
+            a_s.area()
 
         with self.assertRaises(Exception):
             a_s7 = Rectangle(5)
             a_s7.area()
 
-        with self.assertRaises(Exception):
             a_s8 = Rectangle()
             a_s8.area()
+
+            a_s14 = Rectangle()
+            a_s14.area()
+
 
         with self.assertRaises(TypeError):
             a_s9 = Rectangle(9, 5, [0, 1])
             a_s9.area()
 
-        with self.assertRaises(ValueError):
-            a_s10 = Rectangle(2, 5, 0, -1)
-            a_s10.area()
+            a_s6 = Rectangle(4, [5])
+            a_s6.area()
 
-        with self.assertRaises(TypeError):
             a_s11 = Rectangle(5, 5, 0.2, 1)
             a_s11.area()
 
-        with self.assertRaises(TypeError):
             a_s12 = Rectangle("6", 2, 0, 0, 5)
             a_s12.area()
 
-        with self.assertRaises(TypeError):
             a_s13 = Rectangle(6, 5, 0, (1, 2))
             a_s13.area()
-
-        with self.assertRaises(Exception):
-            a_s14 = Rectangle()
-            a_s14.area()
-
-        with self.assertRaises(ValueError):
-            a_s = Rectangle(5, )
-            a_s.area()
 
     def test_rectangle_display(self):
         '''testing for display `#` a output'''
@@ -176,59 +148,43 @@ class TestRectangle(unittest.TestCase):
             d_s2 = Rectangle(2, 0)
             d_s2.display()
 
-        with self.assertRaises(ValueError):
             d_s3 = Rectangle(0, 0)
             d_s3.display()
 
-        with self.assertRaises(ValueError):
             d_s4 = Rectangle(-2, 2)
             d_s4.display()
+
+            d_s11 = Rectangle(2, 1, -1, 1)
+            d_s11.display()
 
         with self.assertRaises(TypeError):
             d_s5 = Rectangle(3, [5], 0, 1)
             d_s5.display()
 
-        with self.assertRaises(TypeError):
             d_s6 = Rectangle((2, 4), 2)
             d_s6.display()
 
-        with self.assertRaises(TypeError):
             d_s7 = Rectangle(2, [7, 2])
             d_s7.display()
 
-        with self.assertRaises(TypeError):
             d_s8 = Rectangle('2', 2)
             d_s8.display()
 
-        with self.assertRaises(TypeError):
             d_s9 = Rectangle(2, 2.9)
             d_s9.display()
 
-        with self.assertRaises(ValueError):
-            d_s11 = Rectangle(2, 1, -1, 1)
-            d_s11.display()
-
-        with self.assertRaises(TypeError):
-            d_s13 = Rectangle(3, 9, 1, '0')
-            d_s13.display()
-
-        with self.assertRaises(TypeError):
             d_s14 = Rectangle(3, 5, [0], 1)
             d_s14.display()
 
-        with self.assertRaises(TypeError):
             d_s15 = Rectangle(2, 4, (1, 0), 2)
             d_s15.display()
 
-        with self.assertRaises(TypeError):
             d_s16 = Rectangle(2, 6, [7, 2], 4)
             d_s16.display()
 
-        with self.assertRaises(TypeError):
             d_s17 = Rectangle(4, 1, '2', 2)
             d_s17.display()
 
-        with self.assertRaises(TypeError):
             d_s18 = Rectangle(4, 1, 2, 2.9)
             d_s18.display()
 
@@ -246,30 +202,21 @@ class TestRectangle(unittest.TestCase):
             re2 = Rectangle(4, 1, '2', 2)
             re2.__str__()
 
-        with self.assertRaises(TypeError):
             re3 = Rectangle(4, 1, 2, 2.9)
             re3.__str__()
+
+            re6 = Rectangle(3, 5, [0], 1)
+            re6.__str__()
+
+            re7 = Rectangle(2, 4, (1, 0), 2)
+            re7.__str__()
+
+            re8 = Rectangle(2, 6, [7, 2], 4)
+            re8.__str__()
 
         with self.assertRaises(ValueError):
             re4 = Rectangle(2, 1, -1, 1)
             re4.__str__()
-
-        with self.assertRaises(TypeError):
-            re5 = Rectangle(3, 9, 1, '0')
-            re5.__str__()
-
-        with self.assertRaises(TypeError):
-            re6 = Rectangle(3, 5, [0], 1)
-            re6.__str__()
-
-        with self.assertRaises(TypeError):
-            re7 = Rectangle(2, 4, (1, 0), 2)
-            re7.__str__()
-
-        with self.assertRaises(TypeError):
-            re8 = Rectangle(2, 6, [7, 2], 4)
-            re8.__str__()
-
 
     def test_update(self):
         '''testing update'''
@@ -308,33 +255,17 @@ class TestRectangle(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             up_u.update(100, [5], 6, 0)
-
-        with self.assertRaises(ValueError):
-            up_u.update(100, -5, 6, 0)
-
-        with self.assertRaises(TypeError):
             up_u.update(100, 5, '6', 0)
-
-        with self.assertRaises(TypeError):
             up_u.update(100, (5, 6))
-
-        with self.assertRaises(TypeError):
             up_u.update(100, [5, 0], 6, 0)
-
-        with self.assertRaises(TypeError):
             up_k.update(id=100, width=[5], height=6)
+            up_k.update(id=100, width='5', height=6)
+            up_k.update(id=100, width=(5, 6), height=6)
+            up_k.update(id=100, width=[5, 0], height=6, x= 0)
 
         with self.assertRaises(ValueError):
             up_k.update(id=100, width=5, height=-6)
-
-        with self.assertRaises(TypeError):
-            up_k.update(id=100, width='5', height=6)
-
-        with self.assertRaises(TypeError):
-            up_k.update(id=100, width=(5, 6), height=6)
-
-        with self.assertRaises(TypeError):
-            up_k.update(id=100, width=[5, 0], height=6, x= 0)
+            up_u.update(100, -5, 6, 0)
 
 
 

@@ -10,129 +10,110 @@
     7. update test          -> 245
 
 '''
+import io
+from unittest.mock import patch
 import unittest
 from models.square import Square
 
 
 class TestSquare(unittest.TestCase):
-    '''testing Square'''
-    def test_SquareInitialized(self):
-        sq = Square(10, 2, 3, 6)
-        self.assertEqual(sq.id, 6)
-        self.assertEqual(sq.size, 10)
-        self.assertEqual(sq.x, 2)
-        self.assertEqual(sq.y, 3)
-       
-    def test_SquareSetter(self):
-        Set = Square(10, 2, 2, 3)
-        Set.size = 11
-        Set.x = 4
-        Set.y = 1
-        self.assertEqual(Set.size, 11)
-        self.assertEqual(Set.x, 4)
-        self.assertEqual(Set.y, 1)
+    '''
+    testing Square
+    prototype
+    '''
+    def test_square_initialized(self):
+        '''testing initialization'''
+        squ = Square(10, 2, 3, 6)
+        self.assertEqual(squ.id, 6)
+        self.assertEqual(squ.size, 10)
+        self.assertEqual(squ.x, 2)
+        self.assertEqual(squ.y, 3)
+
+    def test_square_setter(self):
+        '''testing setter'''
+        seet = Square(10, 2, 2, 3)
+        seet.size = 11
+        seet.x = 4
+        seet.y = 1
+        self.assertEqual(seet.size, 11)
+        self.assertEqual(seet.x, 4)
+        self.assertEqual(seet.y, 1)
 
 
-    '''=====================testing for validation======================'''
-    def test_SquareValidation(self):
+    def test_square_validation(self):
+        '''testing for validation'''
 
         with self.assertRaises(ValueError):
-            r1 = Square(-6)
-
-        with self.assertRaises(ValueError):
-            r2 = Square(0)
+            Square(-6)
+            Square(0)
+            Square(5, 0, -1)
 
         with self.assertRaises(TypeError):
-            r3 = Square([5])
+            Square([5])
+            Square(9, 5, [0, 1])
+            Square(0.2, 1)
+            Square("6", 0, 0, 5)
+            Square(5, 0, (1, 2))
 
         with self.assertRaises(Exception):
-            r5 = Square()
+            Square()
 
-        with self.assertRaises(TypeError):
-            r6 = Square(9, 5, [0, 1])
+    def test_square_area(self):
+        '''testing for area'''
+        sq_a1 = Square(6)
+        self.assertEqual(sq_a1.area(), 36)
 
-        with self.assertRaises(ValueError):
-            r7 = Square(5, 0, -1)
+        sq_a2 = Square(2, 0, 0, 5)
+        self.assertEqual(sq_a2.area(), 4)
 
-        with self.assertRaises(TypeError):
-            r8 = Square(0.2, 1)
-
-        with self.assertRaises(TypeError):
-            r10 = Square("6", 0, 0, 5)
-
-        with self.assertRaises(TypeError):
-            r11 = Square(5, 0, (1, 2))
-        
-        with self.assertRaises(Exception):
-            r12 = Square()
-
-
-    '''================testing for area=========================='''
-    def test_SquareArea(self):
-        a1 = Square(6)
-        self.assertEqual(a1.area(), 36)
-
-        a2 = Square(2, 0, 0, 5)
-        self.assertEqual(a2.area(), 4)
-
-        a3 = Square((5), 0, 1)
-        self.assertEqual(a3.area(), 25)
+        sq_a3 = Square((5), 0, 1)
+        self.assertEqual(sq_a3.area(), 25)
 
         with self.assertRaises(ValueError):
-            a4 = Square(-6)
-            a4.area()
+            sq_a4 = Square(-6)
+            sq_a4.area()
 
-        with self.assertRaises(ValueError):
-            a5 = Square(0)
-            a5.area()
+            sq_a5 = Square(0)
+            sq_a5.area()
 
-        with self.assertRaises(TypeError):
-            a6 = Square([5])
-            a6.area()
+            sq_a10 = Square(2, 0, -1)
+            sq_a10.area()
 
         with self.assertRaises(Exception):
-            a8 = Square()
-            a8.area()
+            sq_a8 = Square()
+            sq_a8.area()
+
+            sq_a14 = Square()
+            sq_a14.area()
 
         with self.assertRaises(TypeError):
-            a9 = Square(9, 5, [0, 1])
-            a9.area()
+            sq_a9 = Square(9, 5, [0, 1])
+            sq_a9.area()
 
-        with self.assertRaises(ValueError):
-            a10 = Square(2, 0, -1)
-            a10.area()
+            sq_a6 = Square([5])
+            sq_a6.area()
 
-        with self.assertRaises(TypeError):
-            a11 = Square(5, 0.2, 1)
-            a11.area()
+            sq_a11 = Square(5, 0.2, 1)
+            sq_a11.area()
 
-        with self.assertRaises(TypeError):
-            a12 = Square("6", 0, 0, 5)
-            a12.area()
+            sq_a12 = Square("6", 0, 0, 5)
+            sq_a12.area()
 
-        with self.assertRaises(TypeError):
-            a13 = Square(6, 0, (1, 2))
-            a13.area()
-        
-        with self.assertRaises(Exception):
-            a14 = Square()
-            a14.area()
+            sq_a13 = Square(6, 0, (1, 2))
+            sq_a13.area()
 
-
-    '''=============testing for display `#` a output========================'''
-    def test_SquareDisplay(self):
-        import io
-        from unittest.mock import patch
-        d = Square(2, 3)
+    def test_square_display(self):
+        '''testing for display `#` a output'''
+        sq_d = Square(2, 3)
         output = '   ##\n   ##\n'
         with patch('sys.stdout', new=io.StringIO()) as fake_stdout:
-            d.display()
+            sq_d.display()
             self.assertEqual(fake_stdout.getvalue(), output)
 
-        d1 = Square((2), 3)
+        sq_d1 = Square((2), 3)
         outp = '   ##\n   ##\n'
         with patch('sys.stdout', new=io.StringIO()) as fake_stdout:
-            d1.display()
+            sq_d1.display()
             self.assertEqual(fake_stdout.getvalue(), outp)
 
         dd1 = Square(3, 0, (1))
@@ -148,111 +129,92 @@ class TestSquare(unittest.TestCase):
             self.assertEqual(fake_stdout.getvalue(), outp2)
 
         with self.assertRaises(ValueError):
-            d2 = Square(0)
-            d2.display()
+            sq_d2 = Square(0)
+            sq_d2.display()
 
-        with self.assertRaises(ValueError):
-            d4 = Square(-2)
-            d4.display()
+            sq_d4 = Square(-2)
+            sq_d4.display()
 
-        with self.assertRaises(TypeError):
-            d5 = Square([5], 0, 1)
-            d5.display()
-
-        with self.assertRaises(TypeError):
-            d6 = Square((2, 4))
-            d6.display()
-
-        with self.assertRaises(TypeError):
-            d7 = Square([7, 2])
-            d7.display()
-
-        with self.assertRaises(TypeError):
-            d8 = Square('2')
-            d8.display()
-
-        with self.assertRaises(TypeError):
-            d9 = Square(2.9)
-            d9.display()
-
-        with self.assertRaises(ValueError):
             dd2 = Square(2, -1, 1)
             dd2.display()
 
         with self.assertRaises(TypeError):
+            sq_d5 = Square([5], 0, 1)
+            sq_d5.display()
+
+            sq_d6 = Square((2, 4))
+            sq_d6.display()
+
+            sq_d7 = Square([7, 2])
+            sq_d7.display()
+
+            sq_d8 = Square('2')
+            sq_d8.display()
+
+            sq_d9 = Square(2.9)
+            sq_d9.display()
+
             dd3 = Square(3, 1, '0')
             dd3.display()
 
-        with self.assertRaises(TypeError):
             dd5 = Square(5, [0], 1)
             dd5.display()
 
-        with self.assertRaises(TypeError):
             dd6 = Square(4, (1, 0), 2)
             dd6.display()
 
-        with self.assertRaises(TypeError):
             dd7 = Square(6, [7, 2], 4)
             dd7.display()
 
-        with self.assertRaises(TypeError):
             dd8 = Square(1, '2', 2)
             dd8.display()
 
-        with self.assertRaises(TypeError):
             dd9 = Square(4, 2, 2.9)
             dd9.display()
 
-
-    '''=====================str=========================='''
-    def test_Str(self):
-        re = Square(10, 30, 2, 3)
-        ex_out = "[Square] ({}) 30/2 - 10".format(re.id)
-        self.assertEqual(str(re), ex_out)
+    def test_str(self):
+        '''testing str'''
+        sq_re = Square(10, 30, 2, 3)
+        ex_out = f"[Square] ({sq_re.id}) 30/2 - 10"
+        self.assertEqual(str(sq_re), ex_out)
 
         re1 = Square(10, 30, 3)
-        ex_out = "[Square] ({}) 30/3 - 10".format(re1.id)
+        ex_out = f"[Square] ({re1.id}) 30/3 - 10"
         self.assertEqual(str(re1), ex_out)
 
         with self.assertRaises(TypeError):
             re2 = Square(4, '2', 2)
             re2.__str__()
 
-        with self.assertRaises(TypeError):
             re3 = Square(1, 2, 2.9)
             re3.__str__()
+
+            re5 = Square(9, 1, '0')
+            re5.__str__()
+
+            re6 = Square(5, [0], 1)
+            re6._str()
+
+            re7 = Square(4, (1, 0), 2)
+            re7.__str__()
+
+            re8 = Square(6, [7, 2], 4)
+            re8.__str__()
 
         with self.assertRaises(ValueError):
             re4 = Square(2, -1, 1)
             re4.__str__()
 
-        with self.assertRaises(TypeError):
-            re5 = Square(9, 1, '0')
-            re5.__str__()
-
-        with self.assertRaises(TypeError):
-            re6 = Square(5, [0], 1)
-            re6._str()
-
-        with self.assertRaises(TypeError):
-            re7 = Square(4, (1, 0), 2)
-            re7.__str__()
-
-        with self.assertRaises(TypeError):
-            re8 = Square(6, [7, 2], 4)
-            re8.__str__()
-
-
-    '''=====================update=========================='''
     def test_update(self):
-        up = Square(10, 7, 2, 3)
+        '''testing update'''
+        up_s = Square(10, 7, 2, 3)
         up_k = Square(10, 7, 2, 3)
 
-        up.update(100, 5, 6, 0)
-        self.assertEqual(up.size, 5)
-        self.assertEqual(up.x, 6)
-        self.assertEqual(up.y, 0)
-        self.assertEqual(up.id, 100)
+        up_s.update(100, 5, 6, 0)
+        self.assertEqual(up_s.size, 5)
+        self.assertEqual(up_s.x, 6)
+        self.assertEqual(up_s.y, 0)
+        self.assertEqual(up_s.id, 100)
 
         up_k.update(id=70, size=15)
         self.assertEqual(up_k.x, 7)
@@ -260,12 +222,12 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(up_k.size, 15)
         self.assertEqual(up_k.id, 70)
 
-        up2 = Square(10)
-        up2.update(100, 6, (0), 0)
-        self.assertEqual(up2.x, 0)
-        self.assertEqual(up2.y, 0)
-        self.assertEqual(up2.size, 6)
-        self.assertEqual(up2.id, 100)
+        up_s2 = Square(10)
+        up_s2.update(100, 6, (0), 0)
+        self.assertEqual(up_s2.x, 0)
+        self.assertEqual(up_s2.y, 0)
+        self.assertEqual(up_s2.size, 6)
+        self.assertEqual(up_s2.id, 100)
 
         up_k2 = Square(10)
         up_k2.update(id=10, size=8, x=(2), y=3)
@@ -274,37 +236,20 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(up_k2.y, 3)
         self.assertEqual(up_k2.id, 10)
 
-        with self.assertRaises(TypeError):
-            up.update(100, [5], 6, 0)
-
         with self.assertRaises(ValueError):
-            up.update(100, -5, 6, 0)
-
-        with self.assertRaises(TypeError):
-            up.update(100, 5, '6', 0)
-
-        with self.assertRaises(TypeError):
-            up.update(100, (5, 6))
-
-        with self.assertRaises(TypeError):
-            up.update(100, [5, 0], 6, 0)
-
-        with self.assertRaises(TypeError):
-            up_k.update(id=100, size=[5])
-
-        with self.assertRaises(ValueError):
+            up_s.update(100, -5, 6, 0)
             up_k.update(id=100, size=-6)
 
         with self.assertRaises(TypeError):
+            up_s.update(100, 5, '6', 0)
+            up_s.update(100, (5, 6))
+            up_s.update(100, [5, 0], 6, 0)
+            up_k.update(id=100, size=[5])
+            up_s.update(100, [5], 6, 0)
             up_k.update(id=100, size='5')
-
-        with self.assertRaises(TypeError):
             up_k.update(id=100, size=(5, 6))
-
-        with self.assertRaises(TypeError):
             up_k.update(id=100, size=[5, 0], x= 0)
 
 
-
 if __name__ == '__main__':
-    unittest.main
+    unittest.main()

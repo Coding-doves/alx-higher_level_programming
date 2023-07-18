@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-'''testcase for JSON
+'''
+Testcase for JSON
 
 '''
 import unittest
@@ -9,8 +10,11 @@ from models.square import Square
 
 
 class TestJson2(unittest.TestCase):
+    '''
+    Testcase for JSON
+
+    '''
     def test_from_json(self):
-        '''testing Json'''
         '''from Json string'''
         with self.assertRaises(TypeError):
             rec = Base.from_json_string([])
@@ -18,7 +22,7 @@ class TestJson2(unittest.TestCase):
         json_dic = Base.from_json_string(None)
         self.assertEqual(json_dic, '[]')
 
-        list_input = '{"d" 8, "width" 14, "height" 9}]'
+        list_input = '[{"d" 8, "width" 14, "height" 9}]'
 
         json_output = Base.from_json_string(list_input)
         out = '[{"id": 8, "width": 14, "height": 9}]'

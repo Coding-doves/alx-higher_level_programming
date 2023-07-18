@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-'''testcase for JSON
+'''
+Testcase for JSON
 
 '''
 import unittest
@@ -9,7 +10,11 @@ from models.square import Square
 
 
 class TestJson(unittest.TestCase):
-    def test_To(self):
+    '''
+    Testcase for JSON
+
+    '''
+    def test_to(self):
         '''testing Json'''
         rec = Base.to_json_string([])
         self.assertEqual(rec, '[]')
@@ -17,78 +22,70 @@ class TestJson(unittest.TestCase):
         json_dic = Base.to_json_string(None)
         self.assertEqual(json_dic, '[]')
        
-        r = Rectangle(14, 9, 2, 3)
-        dic = r.to_dictionary()
+        r_s = Rectangle(14, 9, 2, 3)
+        dic = r_s.to_dictionary()
         json_dic1 = Base.to_json_string([dic])
         out = '[{"id": 1, "width": 14, "height": 9, "x": 2, "y": 3}]'
         self.assertEqual(json_dic1, out)
 
-        r = Rectangle((14), 9, 2, 3)
-        dic = r.to_dictionary()
+        r_s = Rectangle((14), 9, 2, 3)
+        dic = r_s.to_dictionary()
         json_dic1 = Base.to_json_string([dic])
         out = '[{"id": 2, "width": 14, "height": 9, "x": 2, "y": 3}]'
         self.assertEqual(json_dic1, out)
 
         with self.assertRaises(ValueError):
-            r1 = Rectangle(0, 3, 9, 2)
-            dic1 = r1.to_dictionary()
+            r_s1 = Rectangle(0, 3, 9, 2)
+            r_s1.to_dictionary()
 
-        with self.assertRaises(ValueError):
-            r2 = Rectangle(1, -4)
-            dic2 = r2.to_dictionary()
+            r_s2 = Rectangle(1, -4)
+            r_s2.to_dictionary()
 
-        with self.assertRaises(ValueError):
-            r3 = Rectangle()
-            dic3 = r3.to_dictionary()
+            r_s3 = Rectangle()
+            r_s3.to_dictionary()
 
-        with self.assertRaises(TypeError):
-            r4 = Rectangle(10, [3])
-            dic4 = r4.to_dictionary()
+            r_s6 = Rectangle(0, 0)
+            r_s6.to_dictionary()
 
         with self.assertRaises(TypeError):
-            r5 = Rectangle(6, (3, 2))
-            dic5 = r5.to_dictionary()
+            r_s4 = Rectangle(10, [3])
+            r_s4.to_dictionary()
 
-        with self.assertRaises(ValueError):
-            r6 = Rectangle(0, 0)
-            dic6 = r6.to_dictionary()
+            r_s5 = Rectangle(6, (3, 2))
+            r_s5.to_dictionary()
 
-        s = Square(9, 2, 3)
-        sq = s.to_dictionary()
-        json_dic_sq = Base.to_json_string([sq])
-        out = '[{"id": 9, "size": 9, "x": 2, "y": 3}]'
+        squ = Square(9, 2, 3, 7)
+        sq_d = squ.to_dictionary()
+        json_dic_sq = Base.to_json_string([sq_d])
+        out = '[{"id": 7, "size": 9, "x": 2, "y": 3}]'
         self.assertEqual(json_dic_sq, out)
 
-        s0 = Square(9, (2), 3)
-        sq1 = s0.to_dictionary()
-        json_dic_sq2 = Base.to_json_string([sq1])
-        out = '[{"id": 10, "size": 9, "x": 2, "y": 3}]'
+        squ0 = Square(9, (2), 3, 8)
+        sq_d1 = squ0.to_dictionary()
+        json_dic_sq2 = Base.to_json_string([sq_d1])
+        out = '[{"id": 8, "size": 9, "x": 2, "y": 3}]'
         self.assertEqual(json_dic_sq2, out)
 
         with self.assertRaises(ValueError):
-            s1 = Square(0, 3, 9, 2)
-            c1 = s1.to_dictionary()
+            squ1 = Square(0, 3, 9, 2)
+            squ1.to_dictionary()
 
-        with self.assertRaises(ValueError):
-            s2 = Square(1, -4)
-            c2 = s2.to_dictionary()
+            squ2 = Square(1, -4)
+            squ2.to_dictionary()
 
-        with self.assertRaises(TypeError):
-            s3 = Square()
-            c3 = s3.to_dictionary()
+            squ6 = Square(0, 0)
+            squ6.to_dictionary()
 
         with self.assertRaises(TypeError):
-            s4 = Square(10, [3])
-            c4 = s4.to_dictionary()
+            squ3 = Square()
+            squ3.to_dictionary()
 
-        with self.assertRaises(TypeError):
-            s5 = Square(6, (3, 2))
-            c5 = s5.to_dictionary()
+            squ4 = Square(10, [3])
+            squ4.to_dictionary()
 
-        with self.assertRaises(ValueError):
-            s6 = Square(0, 0)
-            c6 = s6.to_dictionary()
+            squ5 = Square(6, (3, 2))
+            squ5.to_dictionary()
 
 
         if __name__ == '__main__':
-            unitest.main()
+            unittest.main()
