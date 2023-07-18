@@ -99,14 +99,17 @@ class TestJson1(unittest.TestCase):
             squr3 = Square(1)
             Square.save_to_file([squr2, squr3])
 
+        with self.assertRaises(ValueError):
             squr = Square(0)
             squr = Square(0)
             Square.save_to_file([squr, squr])
 
+        with self.assertRaises(ValueError):
             squr4 = Square(6)
             squr5 = Square(-4)
             Square.save_to_file([squr4, squr5])
 
+        with self.assertRaises(TypeError):
             squr6 = Square()
             squr7 = Square()
             Square.save_to_file([squr6, squr7])
@@ -116,14 +119,15 @@ class TestJson1(unittest.TestCase):
             squr3 = Square(1)
             Square.save_to_file([squr2, squr3])
 
+        with self.assertRaises(TypeError):
             squr4 = Square([3])
             squr5 = Square(4)
             Square.save_to_file([squr4, squr5])
 
+        with self.assertRaises(TypeError):
             squr6 = Square([3, 3])
             squr7 = Square(4)
             Square.save_to_file([squr6, squr7])
-
 
 
         if __name__ == '__main__':
