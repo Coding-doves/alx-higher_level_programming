@@ -50,24 +50,37 @@ class TestRectangle(unittest.TestCase):
             Rectangle(1, -6)
         with self.assertRaises(ValueError):
             Rectangle(-1, 6)
+        with self.assertRaises(ValueError):
             Rectangle(0, 0)
+        with self.assertRaises(ValueError):
             Rectangle(2, 0)
+        with self.assertRaises(ValueError):
             Rectangle(0, 6)
+        with self.assertRaises(ValueError):
             Rectangle('3', 6)
+        with self.assertRaises(ValueError):
             Rectangle(2, 5, -7)
+        with self.assertRaises(ValueError):
             Rectangle(2, 5, '6')
+        with self.assertRaises(ValueError):
             Rectangle(2, 5, 0, -1)
+        with self.assertRaises(ValueError):
             Rectangle(5, )
 
         with self.assertRaises(Exception):
             Rectangle(5)
+        with self.assertRaises(Exception):
             Rectangle()
 
         with self.assertRaises(TypeError):
             Rectangle(9, 5, [0, 1])
+        with self.assertRaises(TypeError):
             Rectangle(5, 5, 0.2, 1)
+        with self.assertRaises(TypeError):
             Rectangle("6", 2, 0, 0, 5)
+        with self.assertRaises(TypeError):
             Rectangle(6, 5, 0, (1, 2))
+        with self.assertRaises(TypeError):
             Rectangle(4, [5])
 
     def test_rectangle_area(self):
