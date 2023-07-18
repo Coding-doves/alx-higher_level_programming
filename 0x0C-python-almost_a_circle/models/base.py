@@ -72,6 +72,8 @@ class Base:
                     init_list.append(cls.create(**j))
 
                 return init_list
+        elif file is None:
+            return ''
         else:
             return ''
 
