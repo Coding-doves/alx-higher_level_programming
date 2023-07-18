@@ -73,7 +73,7 @@ class Base:
 
                 return init_list
         else:
-            return '[]'
+            return ''
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
@@ -103,4 +103,4 @@ class Base:
 
                 return str_to_read
         else:
-            return'[]' 
+            return'[]'
