@@ -102,5 +102,7 @@ class Base:
                     str_to_read.append(cls.create(**j))
 
                 return str_to_read
+        elif file is None:
+            return ''
         else:
-            return'[]'
+            return''
