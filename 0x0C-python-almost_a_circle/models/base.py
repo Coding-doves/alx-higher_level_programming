@@ -38,9 +38,9 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         '''returns the list of the JSON string representation'''
-        if json_string is None:
-            return '[]'
-        return json.loads(json_string)
+        if json_string is not None:
+            return json.loads(json_string)
+        return '[]'
 
     @classmethod
     def create(cls, **dictionary):
@@ -73,7 +73,7 @@ class Base:
 
                 return init_list
         else:
-            return init_list
+            return '[]'
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
@@ -103,4 +103,4 @@ class Base:
 
                 return str_to_read
         else:
-            return str_to_read
+            return'[]' 
