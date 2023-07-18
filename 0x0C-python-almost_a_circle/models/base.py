@@ -1,8 +1,8 @@
 #!/usr/bin/python3
+import json
 '''base class for this project'''
 
 
-import json
 class Base:
     '''private class attribute'''
     __nb_objects = 0
