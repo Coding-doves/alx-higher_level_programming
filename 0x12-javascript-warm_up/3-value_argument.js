@@ -2,7 +2,7 @@
 const nArgs = process.argv[2];
 
 if (!nArgs) {
-  console.log("No argument");
+  console.log('No argument');
 } else {
   console.log(nArgs);
 }
