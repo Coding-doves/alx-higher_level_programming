@@ -1,6 +1,14 @@
 #!/usr/bin/node
-let a = parseInt(process.argv[2]);
-let b = parseInt(process.argv[3]);
-function add(a, b) {
-    console.log(a + b);
+let x = parseInt(process.argv[2]);
+let i, j, squ = '';
+if (isNaN(x)) {
+    console.log('Missing size');
+} else {
+    for (i = 0; i < x; i++) {
+        for (j = 0; j < x; j++) {
+            squ += 'X';
+        }
+        console.log(squ);
+        squ = '';
+    }
 }
