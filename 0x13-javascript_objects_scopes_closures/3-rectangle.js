@@ -7,7 +7,7 @@ class Rectangle {
     }
   }
 
-  print() {
+  print () {
     if (this.width && this.height) {
       let i;
       let j;

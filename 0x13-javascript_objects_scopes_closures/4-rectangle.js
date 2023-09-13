@@ -7,7 +7,7 @@ class Rectangle {
     }
   }
 
-  print() {
+  print () {
     if (this.width && this.height) {
       let i;
       let j;
@@ -21,7 +21,7 @@ class Rectangle {
     }
   }
 
-  rotate() {
+  rotate () {
     if (this.width && this.height) {
       let exchange = this.height;
       this.height = this.width;
@@ -29,7 +29,7 @@ class Rectangle {
     }
   }
 
-  double() {
+  double () {
     if (this.width && this.height) {
       this.width *= 2;
       this.height *= 2;
