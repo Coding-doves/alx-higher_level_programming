@@ -1,7 +1,8 @@
 #!/usr/bin/node
 const converter = require('./10-converter').converter;
+
 exports.converter = function (base) {
-  return function convertToBase(n) {
+  return function convertToBase (n) {
     if (n < base) {
       return n.toString();
     } else {
