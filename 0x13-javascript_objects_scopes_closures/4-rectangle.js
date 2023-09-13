@@ -23,7 +23,7 @@ class Rectangle {
 
   rotate () {
     if (this.width && this.height) {
-      let exchange = this.height;
+      const exchange = this.height;
       this.height = this.width;
       this.width = exchange;
     }
@@ -35,7 +35,6 @@ class Rectangle {
       this.height *= 2;
     }
   }
-
 }
 
 module.exports = Rectangle;
