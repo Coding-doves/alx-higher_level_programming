@@ -19,6 +19,7 @@ def state_list(username, password, database_name):
     db.close()
     
 if __name__ == "__main__":
+    '''function'''
     if len(sys.argv) == 4:
         username = sys.argv[1]
         password = sys.argv[2]
