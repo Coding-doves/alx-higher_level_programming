@@ -10,11 +10,14 @@ def state_list(username, password, database_name):
     cur = db.cursor()
     cur.execute("SELECT * FROM states ORDER BY states.id ASC")
 
-    states = cursor.fetchall()
+    states = cur.fetchall()
 
     for state in states:
         print(state)
 
+    cur.close()
+    db.close()
+    
 if __name__ == "__main__":
     if len(sys.argv) == 4:
         username = sys.argv[1]
