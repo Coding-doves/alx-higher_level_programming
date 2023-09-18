@@ -5,11 +5,14 @@ import sys
 
 def cities_list(username, password, database_name):
     '''function'''
-    db = MySQLdb.connect(host='localhost', port=3306, user=username, passwd=password, db=database_name)
+    db = MySQLdb.connect(host='localhost',
+                         port=3306, user=username,
+                         passwd=password, db=database_name)
 
     cur = db.cursor()
 
-    cur.execute("SELECT * FROM cities ORDER BY cities.id ASC")
+    cur.execute("SELECT * FROM cities JOIN states ON\
+                cities.states_id = state.id ORDER BY cities.id ASC")
 
     cities = cur.fetchall()
 
