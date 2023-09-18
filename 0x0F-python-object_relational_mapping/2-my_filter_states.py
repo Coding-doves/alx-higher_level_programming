@@ -15,7 +15,7 @@ def state_list_name_matches(username, password, database_name, state_name_search
     cur.execute("SELECT * FROM states \
                 WHERE name LIKE BINARY '{}'\
                 ORDER BY id ASC".format(state_name_searched)
-    
+               )    
     states = cur.fetchall()
 
     for state in states:
