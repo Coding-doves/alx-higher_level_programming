@@ -5,12 +5,15 @@ import sys
 
 def state_list_name_matches(username, password, database_name, state_name_searched):
     '''function'''
-    db = MySQLdb.connect(host='localhost', port=3306, user=username, passwd=password, db=database_name)
+    db = MySQLdb.connect(
+                        host='localhost', port=3306,
+                        user=username, passwd=password,
+                        db=database_name)
 
     cur = db.cursor()
 
-    query = "SELECT * FROM states WHERE name = %s ORDER BY states.id ASC"
-    cur.execute(query, (state_name_searched))
+    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+    cur.execute(query, (state_name_searched,))
 
     states = cur.fetchall()
 
