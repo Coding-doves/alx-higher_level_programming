@@ -3,9 +3,11 @@
 import MySQLdb
 import sys
 
+
 def state_list(username, password, database_name):
     '''function'''
-    db = MySQLdb.connect(host='localhost', port=3306, user=username, passwd=password, db=database_name)
+    db = MySQLdb.connect(host='localhost', port=3306, user=username,
+                         passwd=password, db=database_name)
 
     cur = db.cursor()
     cur.execute("SELECT * FROM states ORDER BY states.id ASC")
@@ -17,7 +19,8 @@ def state_list(username, password, database_name):
 
     cur.close()
     db.close()
-    
+
+
 if __name__ == "__main__":
     '''function'''
     if len(sys.argv) == 4:
