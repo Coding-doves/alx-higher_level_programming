@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-''' import sql'''
+'''
+import sql
+'''
 if __name__ == "__main__":
     import MySQLdb
     import sys
@@ -22,11 +24,8 @@ if __name__ == "__main__":
 
     states = cursor.fetchall()
 
-    for state in states:
-        print(state)
+    for r in rows:
+        print(r)
 
     cursor.close()
     db.close()
-
-
-        state_list_name_matches(username, password, database_name, state_name_searched)
