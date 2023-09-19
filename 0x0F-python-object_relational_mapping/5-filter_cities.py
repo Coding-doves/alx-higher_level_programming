@@ -18,12 +18,14 @@ if __name__ == "__main__":
 
     cursor.execute("SELECT GROUP_CONCAT(cities.name ORDER BY cities.id\
         ASC SEPARATOR ', ') FROM cities JOIN states ON cities.states_id =\
-        states.id WHERE states.name = '{}'ASC".format(state_name))
+        states.id WHERE states.name = '{}'".format(state_name))
 
-    cities = cursor.fetchall()
+    cities = cursor.fetchone()
 
-    for city in cities:
-        print(city)
+    if cities[0]:
+        print(cities[0])
+    else:
+        print()
 
     cursor.close()
     db.close()
