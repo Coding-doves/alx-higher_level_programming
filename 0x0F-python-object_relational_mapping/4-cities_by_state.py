@@ -12,16 +12,16 @@ if __name__ == "__main__":
         host='localhost', port=3306, user=username, passwd=password, db=database_name
         )
 
-    cur = db.cursor()
+    cursor = db.cursor()
 
-    cur.execute("SELECT cities.id, cities.name,\
+    cursor.execute("SELECT cities.id, cities.name,\
                 state.name FROM cities JOIN states ON cities.state_id = states.id\
                 ORDER BY cities.id ASC")
     
-    cities = cur.fetchall()
+    cities = cursor.fetchall()
 
     for city in cities:
         print(city)
 
-    cur.close()
+    cursor.close()
     db.close()
