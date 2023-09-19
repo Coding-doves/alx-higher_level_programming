@@ -6,5 +6,5 @@ exports.converter = function (base) {
     } else {
       return convertToBase (Math.floor(n / base)) + (n % base).toString();
     }
-  };
+  }
 };
