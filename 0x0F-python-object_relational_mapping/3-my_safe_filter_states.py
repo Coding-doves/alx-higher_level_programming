@@ -15,14 +15,14 @@ if __name__ == "__main__":
                         user=username, passwd=password,
                         db=database_name)
 
-    cur = db.cursor()
+    cursor = db.cursor()
 
-    cur.execute("SELECT * FROM states WHERE name = %s ORDER BY id ASC")
+    cursor.execute("SELECT * FROM states WHERE name = %s ORDER BY id ASC")
 
-    states = cur.fetchall()
+    states = cursor.fetchall()
 
     for state in states:
         print(state)
 
-    cur.close()
+    cursor.close()
     db.close()
