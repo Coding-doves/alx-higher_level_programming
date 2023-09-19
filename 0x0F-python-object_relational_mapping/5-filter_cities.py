@@ -16,9 +16,9 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    cursor.execute("SELECT GROUP_CONCAT(cities.name ORDER BY cities.id\
-        ASC SEPARATOR ', ') FROM cities JOIN states ON cities.states_id =\
-        states.id WHERE states.name = '{}'".format(state_name))
+    cursor.execute("SELECT name FROM cities WHERE state_id =\
+                (SELECT id FROM states WHERE name LIKE BINARY '{}')\
+                ORDER BY cities.id ASC".format(state_name))
 
     cities = cursor.fetchone()
 
