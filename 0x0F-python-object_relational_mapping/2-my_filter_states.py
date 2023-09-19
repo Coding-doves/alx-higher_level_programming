@@ -8,26 +8,24 @@ if __name__ == "__main__":
     password = sys.argv[2]
     database_name = sys.argv[3]
     state_name_searched = sys.argv[4]
-    
-    query = "SELECT * FROM states WHERE name\
-            LIKE BINARY '{}' ORDER BY id\
-            ASC".format(state_name_searched)
+
+    query = "SELECT * FROM states WHERE name LIKE BINARY '{}'\
+        ORDER BY id ASC".format(state_name_searched)
     
     db = MySQLdb.connect(
-                        host='localhost',
-                        port=3306, user=username,
-                        passwd=password, db=database_name)
+        host='localhost', port=3306, user=username, passwd=password, db=database_name
+    )
 
-    cur = db.cursor()
+    cursor = db.cursor()
 
-    cur.execute(query)
+    cursor.execute(query)
 
-    states = cur.fetchall()
+    states = cursor.fetchall()
 
     for state in states:
         print(state)
 
-    cur.close()
+    cursor.close()
     db.close()
 
 
