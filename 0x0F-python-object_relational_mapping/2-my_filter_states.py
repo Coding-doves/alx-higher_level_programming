@@ -21,7 +21,6 @@ def state_list_name_matches(username, password, database_name, state_name_search
                 WHERE name LIKE BINARY '{}'\
                 ORDER BY id ASC".format(sys.argv[4])
                )    
->>>>>>> 589172f9a004b1e229265ebbd4bb877ce034ccc2
     states = cur.fetchall()
 
     for state in states:
