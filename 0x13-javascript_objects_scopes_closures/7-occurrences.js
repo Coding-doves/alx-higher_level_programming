@@ -5,4 +5,4 @@ exports.nbOccurences = function (list, searchElement) {
     if (list[i] === searchElement) { occ++; }
   }
   return occ;
-}
+};
