@@ -5,6 +5,10 @@ import sys
 
 def state_list_name_matches(username, password, database_name, state_name_searched):
     '''function'''
+    query = "SELECT * FROM states WHERE name\
+          LIKE BINARY '{}' ORDER BY id\
+            ASC".format(state_name_searched)
+    
     db = MySQLdb.connect(
                         host='localhost',
                         port=3306, user=username,
@@ -12,10 +16,6 @@ def state_list_name_matches(username, password, database_name, state_name_search
 
     cur = db.cursor()
 
-    query = "SELECT * FROM states WHERE name\
-          LIKE BINARY '{}' ORDER BY id\
-            ASC".format(state_name_searched)
-    
     cur.execute(query)
 
     states = cur.fetchall()
