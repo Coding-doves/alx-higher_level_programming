@@ -3,8 +3,13 @@
 import MySQLdb
 import sys
 
-def state_list_name_matches(username, password, database_name, state_name_searched):
-    '''function'''
+
+if __name__ == "__main__":
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database_name = sys.argv[3]
+    state_name_searched = sys.argv[4]
+
     db = MySQLdb.connect(
                         host='localhost', port=3306,
                         user=username, passwd=password,
@@ -12,8 +17,7 @@ def state_list_name_matches(username, password, database_name, state_name_search
 
     cur = db.cursor()
 
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-    cur.execute(query, (state_name_searched,))
+    cur.execute("SELECT * FROM states WHERE name = %s ORDER BY id ASC")
 
     states = cur.fetchall()
 
@@ -22,11 +26,3 @@ def state_list_name_matches(username, password, database_name, state_name_search
 
     cur.close()
     db.close()
-
-if __name__ == "__main__":
-    if len(sys.argv) == 4:
-        username = sys.argv[1]
-        password = sys.argv[2]
-        database_name = sys.argv[3]
-        state_name_searched = sys.argv[4]
-        state_list_name_matches(username, password, database_name, state_name_searched)
