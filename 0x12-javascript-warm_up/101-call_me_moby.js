@@ -1,4 +1,7 @@
-#!/usr/bin/node
-exports.add = function add (a, b) {
-  return ;
+function (x, theFunction) {
+  for (let i = 0; i < x; i++) {
+    theFunction();
+  }
 };
+
+module exports = { callMeMoby };
