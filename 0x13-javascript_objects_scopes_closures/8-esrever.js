@@ -1,6 +1,4 @@
 #!/usr/bin/node
-const esrever = require('./8-esrever').esrever;
-
 exports.esrever = function (list) {
   let i;
   const ser = [];
