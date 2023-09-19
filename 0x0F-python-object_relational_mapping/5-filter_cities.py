@@ -7,18 +7,18 @@ def cities_list(username, password, database_name, state_name):
     db = MySQLdb.connect(host='localhost', port=3306,
                     user=username, passwd=password, db=database_name)
 
-    cur = db.cursor()
+    cursor = db.cursor()
 
-    cur.execute("SELECT GROUP_CONCAT(cities.name ORDER BY cities.id\
+    cursor.execute("SELECT GROUP_CONCAT(cities.name ORDER BY cities.id\
         ASC SEPARATOR ', ') FROM cities JOIN states ON cities.states_id =\
         states.id WHERE states.name = '{}'ASC".format(state_name))
 
-    cities = cur.fetchall()
+    cities = cursor.fetchall()
 
     for city in cities:
         print(city)
 
-    cur.close()
+    cursor.close()
     db.close()
 
 
