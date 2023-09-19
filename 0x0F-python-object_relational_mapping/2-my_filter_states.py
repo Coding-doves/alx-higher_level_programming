@@ -9,7 +9,9 @@ def state_list_name_matches(username, password, database_name, state_name_search
 
     cur = db.cursor()
 
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY states.id ASC".format(state_name_searched)
+    query = "SELECT * FROM states WHERE name\
+          LIKE BINARY '{}'ORDER BY id\
+            ASC".format(state_name_searched)
     cur.execute(query, (state_name_searched,))
 
     states = cur.fetchall()
