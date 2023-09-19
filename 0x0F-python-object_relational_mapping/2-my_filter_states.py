@@ -14,7 +14,8 @@ if __name__ == "__main__":
     state_name_searched = sys.argv[4]
 
     db = MySQLdb.connect(
-        host='localhost', port=3306, user=username, passwd=password, db=database_name
+        host='localhost', port=3306, user=username, passwd=password,
+        db=database_name
     )
 
     cursor = db.cursor()
