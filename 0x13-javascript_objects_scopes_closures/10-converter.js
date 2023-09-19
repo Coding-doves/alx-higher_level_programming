@@ -4,7 +4,7 @@ exports.converter = function (base) {
     if (n < base) {
       return n.toString();
     } else {
-      return convertToBase(Math.floor(n / base)) + (n % base).toString();
+      return convertToBase (Math.floor(n / base)) + (n % base).toString();
     }
-  }
+  };
 };
