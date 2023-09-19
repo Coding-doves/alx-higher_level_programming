@@ -1,10 +1,10 @@
 #!/usr/bin/node
 exports.converter = function (base) {
-  return function convertToBase (n) {
-    if (n < base) {
-      return n.toString();
+  return function (convertToBase) {
+    if (convertToBase < base) {
+      return convertToBase.toString(base);
     } else {
-      return convertToBase (Math.floor(n / base)) + (n % base).toString();
+      return convertToBase.toString(Math.floor(n / base)) + (n % base);
     }
   }
 };
