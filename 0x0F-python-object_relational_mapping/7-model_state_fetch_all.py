@@ -17,7 +17,7 @@ if __name__ == "__main__":
                     )
 
     with engine.connect() as connection:
-        query = select(State).order_by(State.asc())
+        query = select(State).order_by(State.id.asc())
         states = connection.execute(query)
         for state in states:
             print("{}: {}".format(state.id, state.name))
