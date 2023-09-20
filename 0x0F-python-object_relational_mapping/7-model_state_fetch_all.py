@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 '''statement'''
 from sqlalchemy import create_engine, select
-from model_state import State
+from model_state import Base, State
 import sys
 
 
