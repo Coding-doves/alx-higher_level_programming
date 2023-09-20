@@ -9,7 +9,6 @@ import sys
 if __name__ == "__main__":
     '''commenting'''
     if len(sys.argv) == 5:
-        '''commenting'''
         username = sys.argv[1]
         password = sys.argv[2]
         database_name = sys.argv[3]
