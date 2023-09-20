@@ -14,16 +14,21 @@ if __name__ == "__main__":
     db = MySQLdb.connect(host='localhost', port=3306,
                     user=username, passwd=password, db=database_name)
 
+    query = "SELECT name FROM cities WHERE state_id =\
+                (SELECT id FROM states WHERE name LIKE BINARY %s')\
+                ORDER BY cities.id ASC"
+
+    arg = (state_name,)
     cursor = db.cursor()
 
-    cursor.execute("SELECT name FROM cities WHERE state_id =\
-                (SELECT id FROM states WHERE name LIKE BINARY '{}')\
-                ORDER BY cities.id ASC".format(state_name))
+    cursor.execute(query, arg)
 
-    cities = cursor.fetchone()
+    cities = cursor.fetchall()
 
-    if cities[0]:
-        print(cities[0])
+    tj = ()
+    for city in cities:
+        tj += city
+    print(*tj, sep=", ")
     else:
         print()
 
