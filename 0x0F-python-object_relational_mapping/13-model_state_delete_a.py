@@ -8,15 +8,13 @@ import sys
 
 if __name__ == "__main__":
     '''comment'''
-    if len(sys.argv) != 4:
-        print("Usage: python script.py <username> <password> <database_name>")
-        '''comment'''
+    if len(sys.argv) == 4:
         username = sys.argv[1]
         password = sys.argv[2]
         database_name = sys.argv[3]
 
-        engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                               .format(username, password, database_name))
+        engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
+            username, password, database_name), pool_pre_ping=True)
 
         Session = sessionmaker(bind=engine)
         session = Session()
