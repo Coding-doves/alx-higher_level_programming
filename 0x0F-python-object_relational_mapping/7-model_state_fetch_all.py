@@ -12,7 +12,7 @@ if __name__ == "__main__":
     password = sys.argv[2]
     database_name = sys.argv[3]
 
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'format(
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
         username, password, database_name), pool_pre_ping=True)
 
     Session = sessionmaker(bind=engine)
