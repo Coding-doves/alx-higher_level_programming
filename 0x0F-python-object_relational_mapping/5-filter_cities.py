@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 ''' import sql'''
 
-
 if __name__ == "__main__":
     import MySQLdb
     import sys
@@ -29,8 +28,6 @@ if __name__ == "__main__":
     for city in cities:
         tj += city
     print(*tj, sep=", ")
-    else:
-        print()
 
     cursor.close()
     db.close()
