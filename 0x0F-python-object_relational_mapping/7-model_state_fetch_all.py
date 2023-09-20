@@ -1,26 +1,25 @@
 #!/usr/bin/python3
 '''statement'''
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from model_state import Base, State
+from sqlalchemy import create_engine, select
+from model_state import State
 import sys
 
 
 if __name__ == "__main__":
     '''statement'''
-    if len(sys.argv) == 4:
-        username = sys.argv[1]
-        password = sys.argv[2]
-        database_name = sys.argv[3]
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database_name = sys.argv[3]
 
-        engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                               .format(username, password, database_name))
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+                       .format(username, password, database_name),
+                        pool_pre_ping=True,
+                    )
 
-        Session = sessionmaker(bind=engine)
-        session = Session()
-        states = session.query(State).order_by(State.id).all()
+    with engine.connect() as connection:
+        query = select(State).order_by(State.asc())
+        states = connection.execute(query)
+    for state in states:
+        print("{}: {}".format(state.id, state.name))
 
-        for state in states:
-            print("{}: {}".format(state.id, state.name))
-
-        session.close()
+    engine.dispose()
