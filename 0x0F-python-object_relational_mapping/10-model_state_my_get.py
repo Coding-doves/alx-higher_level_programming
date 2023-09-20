@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 '''commenting'''
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 import sys
-
 
 if __name__ == "__main__":
     '''commenting'''
@@ -15,7 +15,7 @@ if __name__ == "__main__":
         state_name = sys.argv[4]
 
         engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
-            username, password, database_name),pool_pre_ping=True)
+            username, password, database_name), pool_pre_ping=True)
 
         Session = sessionmaker(bind=engine)
         session = Session()
