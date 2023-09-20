@@ -1,30 +1,33 @@
 #!/usr/bin/python3
-"""prints all City objects from the db"""
+"""script prints all city"""
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 from model_city import City
-import sys
-
+from sys import argv, exit
 
 if __name__ == "__main__":
-    '''comment'''
-    if len(sys.argv) == 4:
-        '''comment'''
-        username = sys.argv[1]
-        password = sys.argv[2]
-        database_name = sys.argv[3]
+    if len(argv) != 4:
+        print("Usage: {} <username> <password> <database>".format(argv[0]))
+        exit(1)
 
-        engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                               .format(username, password, database_name))
+    username = argv[1]
+    password = argv[2]
+    database_n = argv[3]
 
-        Session = sessionmaker(bind=engine)
-        session = Session()
-        cities = session.query(City).order_by(City.id).all()
+    engine = create_engine(
+            "mysql+mysqldb://{}:{}@localhost/{}".format(
+                username, password, database_n), pool_pre_ping=True
+            )
 
-        for city in cities:
-            state_name = session.query(State.name).filter(State.id == city.state_id).first()[0]
-            print("{}: ({}) {}".format(state_name, city.id, city.name))
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
-        session.close()
+    cities = session.query(City).order_by(City.id).all()
+
+    for city in cities:
+        state = session.query(State).filter(State.id == city.state_id).first()
+        print("{}: ({}) {}".format(state.name, city.id, city.name))
+
+    session.close()
