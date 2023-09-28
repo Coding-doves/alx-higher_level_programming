@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     cursor.execute("SELECT * FROM states WHERE name LIKE BINARY '{}'\
         ORDER BY id ASC".format(state_name_searched))
-    
+
     rows = cursor.fetchall()
 
     for r in rows:
@@ -29,4 +29,3 @@ if __name__ == "__main__":
 
     cursor.close()
     db.close()
-    
