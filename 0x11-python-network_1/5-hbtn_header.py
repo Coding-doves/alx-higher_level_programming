@@ -9,4 +9,6 @@ if __name__ == '__main__':
     pas = requests.get(url)
 
     x_request_id = response.headers.get('X-Request-Id')
-    print(x_request_id)
+
+    if x_request_id:
+        print(x_request_id)
