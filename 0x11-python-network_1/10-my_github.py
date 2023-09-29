@@ -8,15 +8,14 @@ import sys
 
 
 if __name__ == '__main__':
-    if len(sys.argv) == 3:
-        username = sys.argv[1]
-        paswd_token = sys.argv[2]
+    username = sys.argv[1]
+    paswd_token = sys.argv[2]
 
     #github API
     url = "https://api.github.com/user"
 
     #basic authentication
-    auth = (username, passwd_token)
+    auth = (username, paswd_token)
 
     response = requests.get(url, auth=auth)
 
