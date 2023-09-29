@@ -11,10 +11,10 @@ if __name__ == '__main__':
     username = sys.argv[1]
     paswd_token = sys.argv[2]
 
-    #github API
+    # github API
     url = "https://api.github.com/user"
 
-    #basic authentication
+    # basic authentication
     auth = (username, paswd_token)
 
     response = requests.get(url, auth=auth)
