@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 '''
-sends a request to the URL and displays the body of the response
+ GitHub credentials (username and password(token as password)) and
+ uses the GitHub API to display your id
 '''
 import requests
 import sys
@@ -19,4 +20,4 @@ if __name__ == '__main__':
 
     #if response.status_code == 200:
     data = response.json()
-    print(data)
+    print(data['id'])
