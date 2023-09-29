@@ -8,8 +8,9 @@ import sys
 
 
 if __name__ == '__main__':
-    username = sys.argv[1]
-    paswd_token = sys.argv[2]
+    if sys.argv == 2:
+        username = sys.argv[1]
+        paswd_token = sys.argv[2]
     #github API
     url = "https://api.github.com/user"
 
@@ -18,6 +19,8 @@ if __name__ == '__main__':
 
     response = requests.get(url, auth=auth)
 
-    #if response.status_code == 200:
-    data = response.json()
-    print(data['id'])
+    if response.status_code == 200:
+        data = response.json()
+        print(data['id'])
+    else:
+        print(None)
