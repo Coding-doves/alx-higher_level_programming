@@ -8,7 +8,7 @@ import sys
 
 
 if __name__ == '__main__':
-    if sys.argv == 2:
+    if sys.argv == 3:
         username = sys.argv[1]
         paswd_token = sys.argv[2]
 
