@@ -14,7 +14,7 @@ if __name__ == "__main__":
                     user=username, passwd=password, db=database_name)
 
     query = "SELECT name FROM cities WHERE state_id =\
-                (SELECT id FROM states WHERE name LIKE BINARY %s')\
+                (SELECT id FROM states WHERE name LIKE BINARY %s)\
                 ORDER BY cities.id ASC"
 
     arg = (state_name,)
